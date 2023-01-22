@@ -6,7 +6,7 @@ import {
 import { Button, ButtonProps } from "../../components/Button/Button"
 import { HomepageLink } from "../../../components/ui"
 
-interface ButtonListProps {
+export interface ButtonListProps {
   buttons: ButtonProps[] | HomepageLink[]
   align?: ButtonListStylesProps["align"]
   // When on card w/ reversed background color

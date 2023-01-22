@@ -17,7 +17,7 @@ export const GlobalStyles = css`
       &.dark {
         --color-background: #000;
         --color-text: #cfe4e6;
-        --color-primary: #262e2d;
+        --color-primary: #6d6d6d;
         --color-muted: #303030;
         --color-active: #41d9c5;
         --color-black: #000;
@@ -32,6 +32,12 @@ export const GlobalStyles = css`
 
         .hide-dark {
           display: none;
+        }
+
+        .image-padding-dark {
+          border-radius: 24px;
+          margin-left: 24px;
+          margin-right: 24px;
         }
       }
 

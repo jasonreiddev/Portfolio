@@ -4,7 +4,7 @@ import { LogoListProps } from "./logo-list"
 import { BenefitListProps } from "./benefit-list"
 import { TestimonialListProps } from "./testimonial-list"
 import { StatListProps } from "./stat-list"
-import { CtaProps } from "./cta"
+import { CTAProps } from "../stories/kontent/CTA/CTA"
 import { ProductListProps } from "./product-list"
 
 import { AboutHeroProps } from "./about-hero"
@@ -32,7 +32,7 @@ export type SectionProps =
   | BenefitListProps
   | TestimonialListProps
   | StatListProps
-  | CtaProps
+  | CTAProps
   | ProductListProps
   | AboutHeroProps
   | AboutStatListProps
@@ -65,7 +65,7 @@ export type HomepageBlock =
   | WithBlocktype<"HomepageBenefitList", BenefitListProps>
   | WithBlocktype<"HomepageTestimonialList", TestimonialListProps>
   | WithBlocktype<"HomepageStatList", StatListProps>
-  | WithBlocktype<"HomepageCta", CtaProps>
+  | WithBlocktype<"HomepageCta", CTAProps>
   | WithBlocktype<"HomepageProductList", ProductListProps>
   | WithBlocktype<"AboutHero", AboutHeroProps>
   | WithBlocktype<"AboutStatList", AboutStatListProps>

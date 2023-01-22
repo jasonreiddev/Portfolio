@@ -1,51 +1,10 @@
 import * as React from "react"
 import { graphql } from "gatsby"
-import { GatsbyImage, getImage } from "gatsby-plugin-image"
-import {
-  Nudge,
-  Container,
-  Section,
-  Heading,
-  Text,
-  Kicker,
-  HomepageLink,
-  HomepageImage,
-} from "./ui"
-import { ButtonList } from "../stories/Widgets/ButtonList/ButtonList"
 
-export interface CtaProps {
-  id: string
-  kicker?: string
-  heading: string
-  text: string
-  links: HomepageLink[]
-  image?: HomepageImage
-}
+import { CTA, CTAProps } from "../stories/kontent/CTA/CTA"
 
-export default function HomepageCta(props: CtaProps) {
-  return (
-    <Container width="fullbleed">
-      <Section padding={5} radius="large" background="primary">
-        <Heading center>
-          {props.kicker && <Kicker center>{props.kicker}</Kicker>}
-          {props.heading}
-        </Heading>
-        <Text as="p" center variant="lead">
-          {props.text}
-        </Text>
-        {/* CTA card currently doesn't have dark theme set up so doesn't look great */}
-        <ButtonList buttons={props.links} reversed />
-        {props.image && (
-          <Nudge left={5} right={5} bottom={5}>
-            <GatsbyImage
-              alt={props.image.alt}
-              image={getImage(props.image.gatsbyImageData)}
-            />
-          </Nudge>
-        )}
-      </Section>
-    </Container>
-  )
+export default function HomepageCta(props: CTAProps) {
+  return <CTA {...props} />
 }
 
 export const query = graphql`
