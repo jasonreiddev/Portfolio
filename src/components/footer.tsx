@@ -7,6 +7,7 @@ import {
   Facebook,
   Youtube,
   GitHub,
+  Linkedin,
 } from "react-feather"
 import {
   Container,
@@ -42,6 +43,11 @@ const socialMedia = {
     url: "https://youtube.com",
     name: "YouTube",
     icon: <Youtube />,
+  },
+  LINKEDIN: {
+    url: "https://www.linkedin.com/in",
+    name: "YouTube",
+    icon: <Linkedin />,
   },
   GITHUB: {
     url: "https://github.com",
