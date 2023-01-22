@@ -41,6 +41,20 @@ export const GlobalStyles = css`
         }
       }
 
+      /* Temp styles */
+      .image-border {
+        border-radius: 24px;
+      }
+
+      .hover-footer-header {
+        color: var(--color-text);
+      }
+
+      .hover-footer-header:hover {
+        color: var(--color-active);
+      }
+      /* End Temp styles */
+
       margin: 0;
       font-family: "DM Sans", sans-serif;
       color: var(--color-text);

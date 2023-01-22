@@ -119,7 +119,12 @@ export default function Header() {
                         navItems={navItem.navItems}
                       />
                     ) : (
-                      <NavLink to={navItem.href}>{navItem.text}</NavLink>
+                      <NavLink
+                        to={navItem.href}
+                        className="hover-footer-header"
+                      >
+                        {navItem.text}
+                      </NavLink>
                     )}
                   </li>
                 ))}

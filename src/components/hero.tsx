@@ -36,6 +36,7 @@ export default function Hero(props: HeroProps) {
               <GatsbyImage
                 alt={props.image.alt}
                 image={getImage(props.image.gatsbyImageData)}
+                className="image-border"
               />
             )}
           </Box>

@@ -132,7 +132,7 @@ export default function Footer() {
                 return (
                   url && (
                     <li key={link.id}>
-                      <IconLink to={url}>
+                      <IconLink to={url} className="hover-footer-header">
                         <VisuallyHidden>{getSocialName(link)}</VisuallyHidden>
                         {getSocialIcon(link)}
                       </IconLink>
@@ -148,7 +148,9 @@ export default function Footer() {
             {links &&
               links.map((link) => (
                 <li key={link.id}>
-                  <NavLink to={link.href}>{link.text}</NavLink>
+                  <NavLink to={link.href} className="hover-footer-header">
+                    {link.text}
+                  </NavLink>
                 </li>
               ))}
           </FlexList>
