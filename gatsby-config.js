@@ -32,7 +32,7 @@ module.exports = {
         icon: "src/favicon.png",
       },
     },
-
+    "gatsby-plugin-dark-mode",
     {
       resolve: `gatsby-plugin-typescript`,
       options: {

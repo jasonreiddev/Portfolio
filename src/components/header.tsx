@@ -21,6 +21,7 @@ import {
 } from "./header.css"
 import NavItemGroup, { NavItemGroupNavItem } from "./nav-item-group"
 import BrandLogo from "./brand-logo"
+import { ThemeToggler } from "../stories/components/ThemeToggler/ThemeToggler"
 
 type NavItem = {
   id: string
@@ -124,7 +125,13 @@ export default function Header() {
                 ))}
             </FlexList>
           </nav>
-          <div>{cta && <Button to={cta.href}>{cta.text}</Button>}</div>
+          <div>
+            {cta && <Button to={cta.href}>{cta.text}</Button>}{" "}
+            {
+              // Prevents two ThemeToggler Elements being loaded at once
+              !isOpen && <ThemeToggler />
+            }
+          </div>
         </Flex>
       </Container>
       <Container className={mobileHeaderNavWrapper[isOpen ? "open" : "closed"]}>
@@ -167,6 +174,10 @@ export default function Header() {
         <div className={mobileNavOverlay}>
           <nav>
             <FlexList responsive variant="stretch">
+              <li>
+                <ThemeToggler />
+              </li>
+
               {navItems?.map((navItem) => (
                 <li key={navItem.id}>
                   {navItem.navItemType === "Group" ? (

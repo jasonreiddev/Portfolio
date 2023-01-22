@@ -3,11 +3,8 @@ import { ComponentStory, ComponentMeta } from "@storybook/react"
 import { Button } from "./Button"
 
 export default {
-  title: "Button",
+  title: "Components/Button",
   component: Button,
-  argTypes: {
-    backgroundColor: { control: "color" },
-  },
 }
 
 const Template: ComponentStory<typeof Button> = (args) => <Button {...args} />
@@ -15,22 +12,27 @@ const Template: ComponentStory<typeof Button> = (args) => <Button {...args} />
 export const Primary = Template.bind({})
 Primary.args = {
   primary: true,
-  label: "Button",
+  size: "medium",
+  text: "Primary",
 }
 
 export const Secondary = Template.bind({})
 Secondary.args = {
-  label: "Button",
+  size: "medium",
+  primary: false,
+  text: "Secondary",
 }
 
 export const Large = Template.bind({})
 Large.args = {
+  primary: true,
   size: "large",
-  label: "Button",
+  text: "Large",
 }
 
 export const Small = Template.bind({})
 Small.args = {
+  primary: true,
   size: "small",
-  label: "Button",
+  text: "Small",
 }

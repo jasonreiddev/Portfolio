@@ -1,10 +1,10 @@
 import { graphql } from "gatsby"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import * as React from "react"
-// import { Button } from "../stories/Button"
+import { ButtonList } from "../stories/Widgets/ButtonList/ButtonList"
+
 import {
   Box,
-  ButtonList,
   Container,
   Flex,
   Heading,
@@ -46,7 +46,7 @@ export default function Hero(props: HeroProps) {
             </Heading>
             <Subhead as="h2">{props.subhead}</Subhead>
             <Text as="p">{props.text}</Text>
-            <ButtonList links={props.links} />
+            <ButtonList buttons={props.links} align="left" />
           </Box>
         </Flex>
       </Container>

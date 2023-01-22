@@ -7,11 +7,11 @@ import {
   Section,
   Heading,
   Text,
-  ButtonList,
   Kicker,
   HomepageLink,
   HomepageImage,
 } from "./ui"
+import { ButtonList } from "../stories/Widgets/ButtonList/ButtonList"
 
 export interface CtaProps {
   id: string
@@ -33,7 +33,8 @@ export default function HomepageCta(props: CtaProps) {
         <Text as="p" center variant="lead">
           {props.text}
         </Text>
-        <ButtonList links={props.links} variant="center" reversed />
+        {/* CTA card currently doesn't have dark theme set up so doesn't look great */}
+        <ButtonList buttons={props.links} reversed />
         {props.image && (
           <Nudge left={5} right={5} bottom={5}>
             <GatsbyImage

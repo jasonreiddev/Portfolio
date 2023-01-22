@@ -1,8 +1,9 @@
 import * as React from "react"
 
-export default function GatsbyKontentLogo() {
+export default function JRLogo() {
   return (
     <svg
+      className="invert-dark"
       width="24"
       height="24"
       viewBox="0 0 24 24"
