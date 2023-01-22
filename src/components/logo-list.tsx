@@ -17,8 +17,6 @@ export interface LogoItemProps {
 }
 
 export function LogoItem(props: LogoItemProps) {
-  if (!props.image) return null
-
   return (
     <Logo alt={props.alt} image={props.image.gatsbyImageData} size="medium" />
   )
@@ -44,7 +42,7 @@ export default function LogoList(props: LogoListProps) {
             (logo) =>
               logo && (
                 <li key={logo.id}>
-                  <LogoItem {...logo} />
+                  {logo.image ? <LogoItem {...logo} /> : <>{logo.alt}</>}
                 </li>
               )
           )}
