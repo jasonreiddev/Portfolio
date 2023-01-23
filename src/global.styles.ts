@@ -52,6 +52,12 @@ export const GlobalStyles = css`
       .hover-footer-header:hover {
         color: var(--color-active);
       }
+
+      @media screen and (max-width: 40em) {
+        .hide-mobile {
+          display: none;
+        }
+      }
       /* End Temp styles */
 
       margin: 0;

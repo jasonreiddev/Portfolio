@@ -1,6 +1,6 @@
 import * as React from "react"
 import { graphql, useStaticQuery } from "gatsby"
-import { Menu, X } from "react-feather"
+
 import {
   Container,
   Flex,
@@ -8,17 +8,9 @@ import {
   Space,
   NavLink,
   Button,
-  InteractiveIcon,
-  Nudge,
   VisuallyHidden,
 } from "./ui"
-import {
-  mobileNavOverlay,
-  mobileNavLink,
-  desktopHeaderNavWrapper,
-  mobileHeaderNavWrapper,
-  mobileNavSVGColorWrapper,
-} from "./header.css"
+import { desktopHeaderNavWrapper } from "./header.css"
 import NavItemGroup, { NavItemGroupNavItem } from "./nav-item-group"
 import BrandLogo from "./brand-logo"
 import { ThemeToggler } from "../stories/components/ThemeToggler/ThemeToggler"
@@ -89,15 +81,6 @@ export default function Header() {
   `)
 
   const { navItems, cta } = data.layout.header
-  const [isOpen, setOpen] = React.useState(false)
-
-  React.useEffect(() => {
-    if (isOpen) {
-      document.body.style.overflowY = "hidden"
-    } else {
-      document.body.style.overflowY = "visible"
-    }
-  }, [isOpen])
 
   return (
     <header>
@@ -121,7 +104,7 @@ export default function Header() {
                     ) : (
                       <NavLink
                         to={navItem.href}
-                        className="hover-footer-header"
+                        className="hover-footer-header hide-mobile"
                       >
                         {navItem.text}
                       </NavLink>
@@ -132,75 +115,10 @@ export default function Header() {
           </nav>
           <div>
             {cta && <Button to={cta.href}>{cta.text}</Button>}{" "}
-            {
-              // Prevents two ThemeToggler Elements being loaded at once
-              !isOpen && <ThemeToggler />
-            }
+            {<ThemeToggler />}
           </div>
         </Flex>
       </Container>
-      <Container className={mobileHeaderNavWrapper[isOpen ? "open" : "closed"]}>
-        <Space size={2} />
-        <Flex variant="spaceBetween">
-          <span
-            className={
-              mobileNavSVGColorWrapper[isOpen ? "reversed" : "primary"]
-            }
-          >
-            <NavLink to="/">
-              <VisuallyHidden>Home</VisuallyHidden>
-              <BrandLogo />
-            </NavLink>
-          </span>
-          <Flex>
-            <Space />
-            <div>
-              {cta && (
-                <Button to={cta.href} variant={isOpen ? "reversed" : "primary"}>
-                  {cta.text}
-                </Button>
-              )}
-            </div>
-            <Nudge right={3}>
-              <InteractiveIcon
-                title="Toggle menu"
-                onClick={() => setOpen(!isOpen)}
-                className={
-                  mobileNavSVGColorWrapper[isOpen ? "reversed" : "primary"]
-                }
-              >
-                {isOpen ? <X /> : <Menu />}
-              </InteractiveIcon>
-            </Nudge>
-          </Flex>
-        </Flex>
-      </Container>
-      {isOpen && (
-        <div className={mobileNavOverlay}>
-          <nav>
-            <FlexList responsive variant="stretch">
-              <li>
-                <ThemeToggler />
-              </li>
-
-              {navItems?.map((navItem) => (
-                <li key={navItem.id}>
-                  {navItem.navItemType === "Group" ? (
-                    <NavItemGroup
-                      name={navItem.name}
-                      navItems={navItem.navItems}
-                    />
-                  ) : (
-                    <NavLink to={navItem.href} className={mobileNavLink}>
-                      {navItem.text}
-                    </NavLink>
-                  )}
-                </li>
-              ))}
-            </FlexList>
-          </nav>
-        </div>
-      )}
     </header>
   )
 }
