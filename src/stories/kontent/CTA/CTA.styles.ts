@@ -6,7 +6,7 @@ const Wrapper = styled.div<ButtonListStylesProps>`
   max-width: 1280px;
   margin-left: auto;
   margin-right: auto;
-  padding: 32px;
+  padding: 32px 0;
 
   @media screen and (min-width: 52em) {
     padding: 64px 32px;
@@ -18,12 +18,14 @@ const Container = styled.div<ButtonListStylesProps>`
   background-color: var(--color-primary);
   color: var(--color-background);
   border-radius: 24px;
-  padding-top: 32px;
-  padding-bottom: 32px;
+  overflow: hidden;
+`
+
+const ContentWrapper = styled.div<ButtonListStylesProps>`
+  padding: 48px;
 
   @media screen and (min-width: 40em) {
-    padding-top: 64px;
-    padding-bottom: 64px;
+    padding: 64px;
   }
 `
 
@@ -45,6 +47,7 @@ const ImageWrapper = styled.div<ButtonListStylesProps>``
 export const CTAStyles = {
   Wrapper,
   Container,
+  ContentWrapper,
   Lead,
   ImageWrapper,
 }

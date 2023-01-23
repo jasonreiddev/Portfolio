@@ -14,6 +14,8 @@ const Button = styled.button<ButtonStylesProps>`
   line-height: 1;
   border: 0;
   font-family: var(--font-text);
+  /* Matches background animation */
+  transition: background-color 0.2s ease-out;
 
   background-color: ${(p: ButtonStylesProps) => {
     if (p.reversed) {
@@ -68,6 +70,8 @@ const Button = styled.button<ButtonStylesProps>`
   }};
 
   &:hover {
+    /* Only transition on hover on and theme change */
+    transition: none;
     background-color: ${(p: ButtonStylesProps) => {
       if (p.reversed) {
         return p.primary ? `var(--color-active)` : `var(--color-background)`

@@ -36,8 +36,7 @@ export const GlobalStyles = css`
 
         .image-padding-dark {
           border-radius: 24px;
-          margin-left: 24px;
-          margin-right: 24px;
+          margin: -24px 24px 24px 24px;
         }
       }
 

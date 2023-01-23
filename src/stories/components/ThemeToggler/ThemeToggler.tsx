@@ -10,7 +10,6 @@ export const ThemeToggler = () => {
         <label>
           <s.Button
             onClick={() => {
-              console.log(theme)
               toggleTheme(theme == "dark" ? "light" : "dark")
             }}
             aria-label={

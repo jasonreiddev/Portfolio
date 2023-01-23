@@ -7,6 +7,7 @@ export interface ButtonListStylesProps {
 export const Container = styled.ul<ButtonListStylesProps>`
   list-style-type: none;
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   padding: 0;
   gap: 16px;
