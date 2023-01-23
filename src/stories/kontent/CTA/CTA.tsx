@@ -23,7 +23,7 @@ export const CTA = ({ kicker, heading, text, links, image }: CTAProps) => {
       <s.Container>
         <Heading title={heading} kicker={kicker} />
         <s.Lead>{text}</s.Lead>
-        <ButtonList buttons={links} reversed />
+        <ButtonList buttons={links} reversed id="CTA-Button-List" />
         {image && (
           <s.ImageWrapper>
             <GatsbyImage

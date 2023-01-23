@@ -17,7 +17,7 @@ export const GlobalStyles = css`
       &.dark {
         --color-background: #000;
         --color-text: #cfe4e6;
-        --color-primary: #6d6d6d;
+        --color-primary: #969696;
         --color-muted: #303030;
         --color-active: #41d9c5;
         --color-black: #000;

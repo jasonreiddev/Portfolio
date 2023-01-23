@@ -13,6 +13,9 @@ export const ThemeToggler = () => {
               console.log(theme)
               toggleTheme(theme == "dark" ? "light" : "dark")
             }}
+            aria-label={
+              theme == "dark" ? "Switch to light theme" : "Switch to dark theme"
+            }
           >
             <Moon className="display-dark" />
             <Sun className="hide-dark" />

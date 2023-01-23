@@ -5,16 +5,18 @@ export interface ButtonProps extends ButtonStylesProps {
   text: string
   onClick?: () => void
   href: string
+  idPrefix: string
   id: string
 }
 
 export const Button = ({
+  text,
+  idPrefix,
+  id,
   primary = false,
   size = "medium",
   // When on card w/ reversed background color
   reversed,
-  text,
-  ...props
 }: ButtonProps) => {
   return (
     <s.Button
@@ -22,7 +24,7 @@ export const Button = ({
       size={size}
       reversed={reversed}
       type="button"
-      {...props}
+      id={`${idPrefix}-${id}`}
     >
       {text}
     </s.Button>

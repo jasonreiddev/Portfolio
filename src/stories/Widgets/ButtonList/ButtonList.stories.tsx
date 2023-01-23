@@ -3,7 +3,7 @@ import { ComponentStory, ComponentMeta } from "@storybook/react"
 import { ButtonList } from "./ButtonList"
 
 export default {
-  title: "Widgets/Button",
+  title: "Widgets/ButtonList",
   component: ButtonList,
 }
 

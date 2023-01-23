@@ -47,7 +47,11 @@ export default function Hero(props: HeroProps) {
             </Heading>
             <Subhead as="h2">{props.subhead}</Subhead>
             <Text as="p">{props.text}</Text>
-            <ButtonList buttons={props.links} align="left" />
+            <ButtonList
+              buttons={props.links}
+              align="left"
+              id="Hero-Button-List"
+            />
           </Box>
         </Flex>
       </Container>
