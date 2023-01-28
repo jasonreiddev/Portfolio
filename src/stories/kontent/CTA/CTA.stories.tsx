@@ -1,5 +1,5 @@
 import { ComponentStory, ComponentMeta } from "@storybook/react"
-import { PrimarySecondary } from "../../Widgets/ButtonList/ButtonList.stories"
+import { PrimarySecondary } from "../../widgets/ButtonList/ButtonList.stories"
 
 import { CTA } from "./CTA"
 

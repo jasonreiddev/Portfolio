@@ -3,7 +3,7 @@ import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import {
   ButtonList,
   ButtonListProps,
-} from "../../Widgets/ButtonList/ButtonList"
+} from "../../widgets/ButtonList/ButtonList"
 import { CTAStyles as s } from "./CTA.styles"
 import { Heading } from "../../components/Heading/Heading"
 import { HomepageImage } from "../../../components/ui"
