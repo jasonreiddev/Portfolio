@@ -1,10 +1,15 @@
 import { styled } from "@linaria/react"
+import { motion } from "framer-motion"
 
 export interface ButtonStylesProps {
   primary: boolean
   size: "small" | "medium" | "large"
   reversed: boolean
 }
+
+const MotionWrapper = styled(motion.div)`
+  width: fit-content;
+`
 
 const Button = styled.button<ButtonStylesProps>`
   font-weight: 700;
@@ -86,5 +91,6 @@ const Button = styled.button<ButtonStylesProps>`
 `
 
 export const ButtonStyles = {
+  MotionWrapper,
   Button,
 }

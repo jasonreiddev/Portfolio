@@ -16,6 +16,7 @@ import {
   HomepageImage,
   HomepageLink,
 } from "./ui"
+import { AnimatedNumber } from "../stories/components/AnimatedNumber/AnimatedNumber"
 
 interface StatProps {
   id: string
@@ -26,7 +27,13 @@ interface StatProps {
 function Stat(props) {
   return (
     <Box>
-      <Text variant="stat">{props.value}</Text>
+      <Text variant="stat">
+        <AnimatedNumber
+          from={0}
+          to={parseInt(props.value.match(/\d/g).join(""), 0)}
+          suffix={props.value.includes("+") ? "+" : null}
+        />
+      </Text>
       <Text variant="statLabel">{props.label}</Text>
     </Box>
   )
