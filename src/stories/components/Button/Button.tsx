@@ -36,15 +36,22 @@ export const Button = ({
   }
 
   return (
-    <s.Button
-      primary={primary}
-      size={size}
-      reversed={reversed}
-      type="button"
-      id={`${idPrefix}-${id}`}
-      onClick={onClick}
+    <s.MotionWrapper
+      initial={{ opacity: 0, scale: 0.5 }}
+      whileInView={{ opacity: 1, scale: 1 }}
+      whileHover={primary && { scale: 1.05 }}
+      whileTap={primary ? { scale: 1.025 } : { scale: 0.975 }}
     >
-      {text}
-    </s.Button>
+      <s.Button
+        primary={primary}
+        size={size}
+        reversed={reversed}
+        type="button"
+        id={`${idPrefix}-${id}`}
+        onClick={onClick}
+      >
+        {text}
+      </s.Button>
+    </s.MotionWrapper>
   )
 }

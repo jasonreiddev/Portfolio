@@ -1,10 +1,12 @@
 import { styled } from "@linaria/react"
+import { motion } from "framer-motion"
 
-const Button = styled.button`
+const MotionButton = styled(motion.button)`
   background: unset;
   border: 0;
   padding: 0;
   cursor: pointer;
+  line-height: 0;
 
   svg {
     color: var(--color-text);
@@ -13,5 +15,5 @@ const Button = styled.button`
 `
 
 export const ThemeTogglerStyles = {
-  Button,
+  MotionButton,
 }
