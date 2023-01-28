@@ -25,14 +25,13 @@ export const CTA = ({ kicker, heading, text, links, image }: CTAProps) => {
         <s.ContentWrapper>
           <Heading title={heading} kicker={kicker} />
           <s.Lead>{text}</s.Lead>
-          <ButtonList buttons={links} reversed id="CTA-Button-List" />
+          <ButtonList buttons={links} card={true} id="CTA-Button-List" />
         </s.ContentWrapper>
         {image && (
           <s.ImageWrapper>
             <GatsbyImage
               alt={image.alt}
               image={getImage(image.gatsbyImageData)}
-              className="image-padding-dark"
             />
           </s.ImageWrapper>
         )}

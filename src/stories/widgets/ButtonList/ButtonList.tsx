@@ -11,14 +11,14 @@ export interface ButtonListProps {
   align?: ButtonListStylesProps["align"]
   id?: string
   // When on card w/ reversed background color
-  reversed?: boolean
+  card?: boolean
 }
 
 export const ButtonList = ({
   buttons = [],
   align = "center",
   id = "button-list",
-  reversed,
+  card,
 }: ButtonListProps) => {
   return (
     <s.Container align={align} id={id}>
@@ -27,7 +27,7 @@ export const ButtonList = ({
           <s.ButtonWrapper key={button.id ? button.id : i}>
             <Button
               {...button}
-              reversed={reversed}
+              card={card}
               primary={i == 0}
               idPrefix={id}
               id={button.id ? button.id : i}

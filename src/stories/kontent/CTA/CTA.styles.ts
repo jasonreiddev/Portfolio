@@ -15,8 +15,8 @@ const Wrapper = styled.div<ButtonListStylesProps>`
 
 const Container = styled.div<ButtonListStylesProps>`
   width: 100%;
-  background-color: var(--color-primary);
-  color: var(--color-background);
+  background-color: var(--color-card-background);
+  color: var(--color-card-text);
   border-radius: 24px;
   overflow: hidden;
 `
