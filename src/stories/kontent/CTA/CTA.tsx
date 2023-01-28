@@ -1,9 +1,10 @@
-import * as React from "react"
+import React from "react"
+import { graphql } from "gatsby"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import {
   ButtonList,
   ButtonListProps,
-} from "../../Widgets/ButtonList/ButtonList"
+} from "../../widgets/ButtonList/ButtonList"
 import { CTAStyles as s } from "./CTA.styles"
 import { Heading } from "../../components/Heading/Heading"
 import { HomepageImage } from "../../../components/ui"
@@ -39,3 +40,22 @@ export const CTA = ({ kicker, heading, text, links, image }: CTAProps) => {
     </s.Wrapper>
   )
 }
+
+export const query = graphql`
+  fragment HomepageCtaContent on HomepageCta {
+    id
+    kicker
+    heading
+    text
+    image {
+      alt
+      id
+      gatsbyImageData
+    }
+    links {
+      id
+      href
+      text
+    }
+  }
+`

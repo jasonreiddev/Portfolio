@@ -1,7 +1,7 @@
 import { graphql } from "gatsby"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import * as React from "react"
-import { ButtonList } from "../stories/Widgets/ButtonList/ButtonList"
+import { ButtonList } from "../stories/widgets/ButtonList/ButtonList"
 
 import {
   Box,
