@@ -39,6 +39,7 @@ export const CTA = ({ kicker, heading, text, links, image }: CTAProps) => {
       variants={cardVariants}
       initial="offscreen"
       whileInView="onscreen"
+      viewport={{ once: true }}
     >
       <s.Container>
         <s.ContentWrapper>

@@ -71,6 +71,7 @@ export const StatList = ({
       variants={cardVariants}
       initial="offscreen"
       whileInView="onscreen"
+      viewport={{ once: true }}
     >
       <s.Container>
         <s.ContentWrapper>
