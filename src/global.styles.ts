@@ -10,6 +10,12 @@ export const GlobalStyles = css`
       --color-active: #001d3d;
       --color-black: #000;
 
+      --color-card-active: #2aceb9;
+      --color-card-primary: #231f20;
+      --color-card-muted: #303030;
+      --color-card-background: #231f20;
+      --color-card-text: #41d9c5;
+
       .display-dark {
         display: none;
       }
@@ -32,11 +38,6 @@ export const GlobalStyles = css`
 
         .hide-dark {
           display: none;
-        }
-
-        .image-padding-dark {
-          border-radius: 24px;
-          margin: -24px 24px 24px 24px;
         }
       }
 

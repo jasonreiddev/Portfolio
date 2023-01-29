@@ -20,8 +20,7 @@ export const Button = ({
   id,
   primary = false,
   size = "medium",
-  // When on card w/ reversed background color
-  reversed,
+  card,
 }: ButtonProps) => {
   if (!onClick && href) {
     if (externalLink.test(href)) {
@@ -45,7 +44,7 @@ export const Button = ({
       <s.Button
         primary={primary}
         size={size}
-        reversed={reversed}
+        card={card}
         type="button"
         id={`${idPrefix}-${id}`}
         onClick={onClick}

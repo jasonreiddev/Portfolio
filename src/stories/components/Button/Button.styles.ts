@@ -4,7 +4,7 @@ import { motion } from "framer-motion"
 export interface ButtonStylesProps {
   primary: boolean
   size: "small" | "medium" | "large"
-  reversed: boolean
+  card: boolean
 }
 
 const MotionWrapper = styled(motion.div)`
@@ -23,16 +23,20 @@ const Button = styled.button<ButtonStylesProps>`
   transition: background-color 0.2s ease-out;
 
   background-color: ${(p: ButtonStylesProps) => {
-    if (p.reversed) {
-      return p.primary ? `var(--color-background)` : `var(--color-primary)`
+    if (p.card) {
+      return p.primary
+        ? `var(--color-card-text)`
+        : `var(--color-card-background)`
     }
 
     return p.primary ? `var(--color-text)` : `var(--color-background)`
   }};
 
   color: ${(p: ButtonStylesProps) => {
-    if (p.reversed) {
-      return p.primary ? `var(--color-text)` : `var(--color-background)`
+    if (p.card) {
+      return p.primary
+        ? `var(--color-card-background)`
+        : `var(--color-card-text)`
     }
 
     return p.primary ? `var(--color-background)` : `var(--color-text)`
@@ -78,13 +82,20 @@ const Button = styled.button<ButtonStylesProps>`
     /* Only transition on hover on and theme change */
     transition: none;
     background-color: ${(p: ButtonStylesProps) => {
-      if (p.reversed) {
-        return p.primary ? `var(--color-active)` : `var(--color-background)`
+      if (p.card) {
+        return p.primary
+          ? `var(--color-card-active)`
+          : `var(--color-card-muted)`
       }
       return p.primary ? `var(--color-active)` : `var(--color-muted)`
     }};
 
     color: ${(p: ButtonStylesProps) => {
+      if (p.card) {
+        return p.primary
+          ? `var(--color-card-background)`
+          : `var(--color-card-text)`
+      }
       return p.primary ? `var(--color-background)` : `var(--color-text)`
     }};
   }
