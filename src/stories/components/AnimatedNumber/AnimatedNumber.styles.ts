@@ -1,6 +1,8 @@
 import { styled } from "@linaria/react"
 
-const Wrapper = styled("div")``
+const Wrapper = styled("div")`
+  white-space: nowrap;
+`
 
 const Container = styled("span")`
   display: inline-grid;

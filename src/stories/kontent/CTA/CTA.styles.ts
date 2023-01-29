@@ -22,10 +22,10 @@ const Container = styled.div`
 `
 
 const ContentWrapper = styled.div`
-  padding: 48px;
+  padding: 48px 48px 0;
 
   @media screen and (min-width: 40em) {
-    padding: 64px;
+    padding: 64px 64px 0;
   }
 `
 

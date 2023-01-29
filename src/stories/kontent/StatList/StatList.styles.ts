@@ -32,7 +32,11 @@ const Container = styled.div`
 
 const ContentWrapper = styled.div`
   width: 50%;
+  flex-grow: 1;
   z-index: 1;
+  @media screen and (min-width: 64em) {
+    flex-grow: 0;
+  }
 `
 
 const Lead = styled.p`
@@ -45,6 +49,7 @@ const Lead = styled.p`
 
 const StatContainer = styled.div`
   display: flex;
+  flex-wrap: wrap;
 
   li {
     list-style: none;
