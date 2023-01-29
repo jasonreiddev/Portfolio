@@ -32,7 +32,7 @@ const Container = styled.div`
 
 const ContentWrapper = styled.div`
   width: 50%;
-  flex-grow: 1;
+  z-index: 1;
 `
 
 const Lead = styled.p`
@@ -77,6 +77,7 @@ const StatLabel = styled.span`
 const MotionImageWrapper = styled(motion.div)`
   width: 50%;
   display: none;
+  z-index: 0;
 
   @media screen and (min-width: 64em) {
     display: flex;
