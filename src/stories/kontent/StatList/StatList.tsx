@@ -5,18 +5,42 @@ import {
   ButtonList,
   ButtonListProps,
 } from "../../widgets/ButtonList/ButtonList"
-import { CTAStyles as s } from "./CTA.styles"
+import { CTAStyles as s } from "./StatList.styles"
 import { Heading } from "../../components/Heading/Heading"
 import { HomepageImage } from "../../../components/ui"
-import { Variants } from "framer-motion"
+import { useMotionValue, useTransform, Variants } from "framer-motion"
+import { Icon } from "../../components/Icon/Icon"
+import { AnimatedNumber } from "../../components/AnimatedNumber/AnimatedNumber"
 
-export interface CTAProps {
+interface StatProps {
   id: string
+  value: string
+  label: string
+}
+
+export interface StatListProps {
+  icon?: HomepageImage
   kicker?: string
   heading: string
-  text: string
+  text?: string
+  content: StatProps[]
   links: ButtonListProps["buttons"]
   image?: HomepageImage
+}
+
+function Stat(props) {
+  return (
+    <s.StatWrapper>
+      <s.Stat>
+        <AnimatedNumber
+          from={0}
+          to={parseInt(props.value.match(/\d/g).join(""), 0)}
+          suffix={props.value.includes("+") ? "+" : null}
+        />
+      </s.Stat>
+      <s.StatLabel>{props.label}</s.StatLabel>
+    </s.StatWrapper>
+  )
 }
 
 const cardVariants: Variants = {
@@ -33,7 +57,15 @@ const cardVariants: Variants = {
   },
 }
 
-export const CTA = ({ kicker, heading, text, links, image }: CTAProps) => {
+export const StatList = ({
+  icon,
+  kicker,
+  heading,
+  text,
+  content,
+  links,
+  image,
+}: StatListProps) => {
   return (
     <s.MotionWrapper
       variants={cardVariants}
@@ -43,21 +75,23 @@ export const CTA = ({ kicker, heading, text, links, image }: CTAProps) => {
     >
       <s.Container>
         <s.ContentWrapper>
+          {icon && <Icon alt={icon.alt} image={icon.gatsbyImageData} />}
           <Heading title={heading} kicker={kicker} />
           {text && <s.Lead>{text}</s.Lead>}
+          <s.StatContainer>
+            {content &&
+              content.map((stat) => (
+                <li key={stat.id}>
+                  <Stat {...stat} />
+                </li>
+              ))}
+          </s.StatContainer>
           {links && (
             <ButtonList buttons={links} card={true} id="CTA-Button-List" />
           )}
         </s.ContentWrapper>
         {image && (
-          <s.MotionImageWrapper
-            animate={{ skewX: 6, skewY: -6 }}
-            transition={{
-              duration: 5,
-              repeat: Infinity,
-              repeatType: "reverse",
-            }}
-          >
+          <s.MotionImageWrapper initial={{ x: 200 }} whileInView={{ x: 0 }}>
             <GatsbyImage
               alt={image.alt}
               image={getImage(image.gatsbyImageData)}
@@ -70,15 +104,26 @@ export const CTA = ({ kicker, heading, text, links, image }: CTAProps) => {
 }
 
 export const query = graphql`
-  fragment HomepageCtaContent on HomepageCta {
+  fragment HomepageStatListContent on HomepageStatList {
     id
     kicker
     heading
     text
     image {
-      alt
       id
+      alt
       gatsbyImageData
+    }
+    icon {
+      id
+      alt
+      gatsbyImageData
+    }
+    content {
+      id
+      value
+      label
+      heading
     }
     links {
       id

@@ -10,7 +10,6 @@ export interface ButtonListProps {
   buttons: ButtonProps[] | HomepageLink[]
   align?: ButtonListStylesProps["align"]
   id?: string
-  // When on card w/ reversed background color
   card?: boolean
 }
 

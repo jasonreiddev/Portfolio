@@ -11,8 +11,6 @@ const Container = styled.h2`
   @media screen and (min-width: 52em) {
     font-size: 48px;
   }
-
-  text-align: center;
 `
 
 const Kicker = styled.div`

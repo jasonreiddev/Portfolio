@@ -18,13 +18,14 @@ const Container = styled.div`
   color: var(--color-card-text);
   border-radius: 24px;
   overflow: hidden;
+  text-align: center;
 `
 
 const ContentWrapper = styled.div`
-  padding: 48px;
+  padding: 48px 48px 0;
 
   @media screen and (min-width: 40em) {
-    padding: 64px;
+    padding: 64px 64px 0;
   }
 `
 
