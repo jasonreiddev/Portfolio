@@ -1,8 +1,7 @@
 import { styled } from "@linaria/react"
+import { motion } from "framer-motion"
 
-export interface ButtonListStylesProps {}
-
-const Wrapper = styled.div<ButtonListStylesProps>`
+const MotionWrapper = styled(motion.div)`
   max-width: 1280px;
   margin-left: auto;
   margin-right: auto;
@@ -13,7 +12,7 @@ const Wrapper = styled.div<ButtonListStylesProps>`
   }
 `
 
-const Container = styled.div<ButtonListStylesProps>`
+const Container = styled.div`
   width: 100%;
   background-color: var(--color-card-background);
   color: var(--color-card-text);
@@ -21,7 +20,7 @@ const Container = styled.div<ButtonListStylesProps>`
   overflow: hidden;
 `
 
-const ContentWrapper = styled.div<ButtonListStylesProps>`
+const ContentWrapper = styled.div`
   padding: 48px;
 
   @media screen and (min-width: 40em) {
@@ -29,7 +28,7 @@ const ContentWrapper = styled.div<ButtonListStylesProps>`
   }
 `
 
-const Lead = styled.p<ButtonListStylesProps>`
+const Lead = styled.p`
   margin-bottom: 16px;
   font-size: 24px;
   font-weight: 800;
@@ -42,12 +41,12 @@ const Lead = styled.p<ButtonListStylesProps>`
   }
 `
 
-const ImageWrapper = styled.div<ButtonListStylesProps>``
+const MotionImageWrapper = styled(motion.div)``
 
 export const CTAStyles = {
-  Wrapper,
+  MotionWrapper,
   Container,
   ContentWrapper,
   Lead,
-  ImageWrapper,
+  MotionImageWrapper,
 }
