@@ -24,7 +24,7 @@ PrimarySecondary.args = {
     },
   ],
   align: "left",
-  reversed: false,
+  card: false,
 }
 
 export const Center = Template.bind({})
@@ -40,11 +40,11 @@ Center.args = {
     },
   ],
   align: "center",
-  reversed: false,
+  card: false,
 }
 
-export const Reversed = Template.bind({})
-Reversed.args = {
+export const Card = Template.bind({})
+Card.args = {
   buttons: [
     {
       primary: true,
@@ -56,10 +56,10 @@ Reversed.args = {
     },
   ],
   align: "left",
-  reversed: true,
+  card: true,
 }
-Reversed.parameters = {
+Card.parameters = {
   backgrounds: {
-    values: [{ name: "background", value: "var(--color-primary)" }],
+    values: [{ name: "background", value: "var(--color-card-primary)" }],
   },
 }

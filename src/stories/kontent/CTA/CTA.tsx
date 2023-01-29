@@ -8,7 +8,7 @@ import {
 import { CTAStyles as s } from "./CTA.styles"
 import { Heading } from "../../components/Heading/Heading"
 import { HomepageImage } from "../../../components/ui"
-import { useMotionValue, useTransform, Variants } from "framer-motion"
+import { Variants } from "framer-motion"
 
 export interface CTAProps {
   id: string
@@ -43,8 +43,10 @@ export const CTA = ({ kicker, heading, text, links, image }: CTAProps) => {
       <s.Container>
         <s.ContentWrapper>
           <Heading title={heading} kicker={kicker} />
-          <s.Lead>{text}</s.Lead>
-          <ButtonList buttons={links} card={true} id="CTA-Button-List" />
+          {text && <s.Lead>{text}</s.Lead>}
+          {links && (
+            <ButtonList buttons={links} card={true} id="CTA-Button-List" />
+          )}
         </s.ContentWrapper>
         {image && (
           <s.MotionImageWrapper

@@ -36,3 +36,29 @@ Small.args = {
   size: "small",
   text: "Small",
 }
+
+export const CardPrimary = Template.bind({})
+CardPrimary.args = {
+  primary: true,
+  size: "medium",
+  text: "Primary",
+  card: true,
+}
+CardPrimary.parameters = {
+  backgrounds: {
+    values: [{ name: "background", value: "var(--color-card-primary)" }],
+  },
+}
+
+export const CardSecondary = Template.bind({})
+CardSecondary.args = {
+  primary: false,
+  size: "medium",
+  text: "Secondary",
+  card: true,
+}
+CardSecondary.parameters = {
+  backgrounds: {
+    values: [{ name: "background", value: "var(--color-card-primary)" }],
+  },
+}

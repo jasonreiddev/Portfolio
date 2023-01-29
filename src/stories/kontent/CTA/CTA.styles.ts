@@ -18,6 +18,7 @@ const Container = styled.div`
   color: var(--color-card-text);
   border-radius: 24px;
   overflow: hidden;
+  text-align: center;
 `
 
 const ContentWrapper = styled.div`
