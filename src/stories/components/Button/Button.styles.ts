@@ -1,5 +1,6 @@
 import { styled } from "@linaria/react"
 import { motion } from "framer-motion"
+import { Link } from "gatsby"
 
 export interface ButtonStylesProps {
   primary: boolean
@@ -19,6 +20,7 @@ const Button = styled.button<ButtonStylesProps>`
   line-height: 1;
   border: 0;
   font-family: var(--font-text);
+  text-decoration: none;
   /* Matches background animation */
   transition: background-color 0.2s ease-out;
 

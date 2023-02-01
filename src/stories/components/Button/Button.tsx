@@ -1,5 +1,5 @@
 import React from "react"
-import { navigate } from "gatsby"
+import { Link, navigate } from "gatsby"
 import { ButtonStyles as s, ButtonStylesProps } from "./Button.styles"
 
 export interface ButtonProps extends ButtonStylesProps {
@@ -22,15 +22,13 @@ export const Button = ({
   size = "medium",
   card,
 }: ButtonProps) => {
+  let ElementType: "button" | typeof Link | "a" = "button"
+
   if (!onClick && href) {
     if (externalLink.test(href)) {
-      onClick = () => {
-        window.location.href = href
-      }
+      ElementType = "a"
     } else {
-      onClick = () => {
-        navigate("/page")
-      }
+      ElementType = Link
     }
   }
 
@@ -45,9 +43,14 @@ export const Button = ({
         primary={primary}
         size={size}
         card={card}
-        type="button"
         id={`${idPrefix}-${id}`}
-        onClick={onClick}
+        as={ElementType}
+        {...{
+          onClick: ElementType == "button" ? onClick : undefined,
+          type: ElementType == "button" ? "button" : undefined,
+          href: ElementType == "a" ? href : undefined,
+          to: typeof ElementType == typeof Link ? href : undefined,
+        }}
       >
         {text}
       </s.Button>
