@@ -4,40 +4,56 @@ require("dotenv").config({
 
 module.exports = {
   siteMetadata: {
-    siteUrl: "https://gatsbykontent-aihomepage.gatsbyjs.io/",
-    title: "Gatsby Kontent.ai Homepage Starter",
-    author: `Gatsby`,
-    description: "A Gatsby Starter for building homepages with Kontent.ai",
+    siteUrl: "https://jasonreid.dev/",
+    title: "Jason Reid's Development Portfolio",
+    author: "Jason Reid",
+    description: "My software development portfolio",
   },
   plugins: [
     {
-      resolve: `@kontent-ai/gatsby-source`,
+      resolve: "gatsby-plugin-manifest",
+      options: {
+        name: "Jason Reid's Development Portfolio",
+        short_name: "JR Dev Portfolio",
+        start_url: "/",
+        background_color: "#41d9c5",
+        theme_color: "#231f20",
+        display: "standalone",
+        icon: "src/brand-logo.png",
+        icon_options: {
+          // For all the options available,
+          purpose: `any maskable`,
+        },
+        /* Required for gatsby-plugin-offline */
+        cache_busting_mode: "none",
+      },
+    },
+    {
+      resolve: "gatsby-plugin-offline",
+      options: {
+        workboxConfig: {
+          /* Required for gatsby-plugin-manifest */
+          globPatterns: ["**/brand-logo*"],
+        },
+      },
+    },
+    {
+      resolve: "@kontent-ai/gatsby-source",
       options: {
         projectId: process.env.KONTENT_PROJECT_ID,
-        languageCodenames: [`en-US`],
+        languageCodenames: ["en-US"],
       },
     },
     "gatsby-plugin-sharp",
     "gatsby-plugin-image",
     "gatsby-transformer-sharp",
     "gatsby-plugin-vanilla-extract",
-    {
-      resolve: "gatsby-plugin-manifest",
-      options: {
-        name: "Gatsby Starter Kontent.ai Homepage",
-        short_name: "Gatsby",
-        start_url: "/",
-        background_color: "#41D9C5",
-        theme_color: "#231F20",
-        icon: "src/favicon.png",
-      },
-    },
     "gatsby-plugin-dark-mode",
     {
-      resolve: `gatsby-plugin-typescript`,
+      resolve: "gatsby-plugin-typescript",
       options: {
         isTSX: true, // default: false
-        jsxPragma: `React`, // default
+        jsxPragma: "React", // default
         allExtensions: true, // default: false
       },
     },

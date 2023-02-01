@@ -47,9 +47,10 @@ const Lead = styled.p`
   text-align: left;
 `
 
-const StatContainer = styled.div`
+const StatContainer = styled.ul`
   display: flex;
   flex-wrap: wrap;
+  padding: 0;
 
   li {
     list-style: none;

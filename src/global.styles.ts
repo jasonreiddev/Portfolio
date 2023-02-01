@@ -9,6 +9,7 @@ export const GlobalStyles = css`
       --color-muted: #2aceb9;
       --color-active: #001d3d;
       --color-black: #000;
+      --color-white: #fff;
 
       --color-card-active: #2aceb9;
       --color-card-primary: #231f20;
@@ -26,7 +27,6 @@ export const GlobalStyles = css`
         --color-primary: #969696;
         --color-muted: #303030;
         --color-active: #41d9c5;
-        --color-black: #000;
 
         .invert-dark {
           filter: invert(1);

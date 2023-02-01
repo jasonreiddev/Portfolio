@@ -12,8 +12,8 @@ import {
 } from "./ui"
 import { desktopHeaderNavWrapper } from "./header.css"
 import NavItemGroup, { NavItemGroupNavItem } from "./nav-item-group"
-import BrandLogo from "./brand-logo"
 import { ThemeToggler } from "../stories/components/ThemeToggler/ThemeToggler"
+import { BrandLogo } from "../stories/components/BrandLogo/BrandLogo"
 
 type NavItem = {
   id: string

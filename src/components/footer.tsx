@@ -21,7 +21,7 @@ import {
   VisuallyHidden,
   HomepageLink,
 } from "./ui"
-import BrandLogo from "./brand-logo"
+import { BrandLogo } from "../stories/components/BrandLogo/BrandLogo"
 
 const socialMedia = {
   TWITTER: {
