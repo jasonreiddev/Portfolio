@@ -38,7 +38,9 @@ function Counter({ from, to, duration, suffix }) {
   }, [from, toState])
 
   useEffect(() => {
-    setTo(isInView ? to : from)
+    if (isInView) {
+      setTo(to)
+    }
   }, [to, isInView])
 
   return (
