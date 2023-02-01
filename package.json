@@ -1,5 +1,5 @@
 {
-  "name": "gatsby-starter-kontent-ai-homepage-ts",
+  "name": "jason-reid-development-portfolio",
   "version": "1.0.0",
   "engines": {
     "node": ">=18.13.0"
@@ -42,6 +42,7 @@
     "gatsby-plugin-image": "^3.0.0",
     "gatsby-plugin-linaria": "^4.0.1",
     "gatsby-plugin-manifest": "^4.7.0",
+    "gatsby-plugin-offline": "^6.5.0",
     "gatsby-plugin-sharp": "^5.0.0",
     "gatsby-plugin-vanilla-extract": "^4.0.1",
     "gatsby-source-filesystem": "^5.0.0",
