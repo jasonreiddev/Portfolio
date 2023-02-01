@@ -34,6 +34,10 @@ const Button = styled.button<ButtonStylesProps>`
 
   color: ${(p: ButtonStylesProps) => {
     if (p.card) {
+      if (p.size !== "large") {
+        return p.primary ? `var(--color-black)` : `var(--color-white)`
+      }
+
       return p.primary
         ? `var(--color-card-background)`
         : `var(--color-card-text)`
@@ -88,15 +92,6 @@ const Button = styled.button<ButtonStylesProps>`
           : `var(--color-card-muted)`
       }
       return p.primary ? `var(--color-active)` : `var(--color-muted)`
-    }};
-
-    color: ${(p: ButtonStylesProps) => {
-      if (p.card) {
-        return p.primary
-          ? `var(--color-card-background)`
-          : `var(--color-card-text)`
-      }
-      return p.primary ? `var(--color-background)` : `var(--color-text)`
     }};
   }
 `
