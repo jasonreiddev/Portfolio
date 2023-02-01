@@ -33,7 +33,7 @@ module.exports = {
       options: {
         workboxConfig: {
           /* Required for gatsby-plugin-manifest */
-          globPatterns: ["**/brand-logo*"],
+          globPatterns: ['*.html'],
         },
       },
     },
