@@ -1,12 +1,12 @@
 import { styled } from "@linaria/react"
 import { GatsbyImage } from "gatsby-plugin-image"
 
-export interface ButtonStylesProps {
+export interface IconStylesProps {
   size: "small" | "medium" | "large"
 }
 
-const Wrapper = styled("div")<ButtonStylesProps>`
-  padding: ${(p: ButtonStylesProps) => {
+const Wrapper = styled("div")<IconStylesProps>`
+  padding: ${(p: IconStylesProps) => {
     switch (p.size) {
       case "small": {
         return `
