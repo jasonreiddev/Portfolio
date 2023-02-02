@@ -24,6 +24,13 @@ module.exports = {
           // For all the options available,
           purpose: `any maskable`,
         },
+        icons: [
+          {
+            src: "src/favicon.png",
+            sizes: `192x192`,
+            type: `image/png`,
+          },
+        ],
         /* Required for gatsby-plugin-offline */
         cache_busting_mode: "none",
       },
@@ -33,7 +40,7 @@ module.exports = {
       options: {
         workboxConfig: {
           /* Required for gatsby-plugin-manifest */
-          globPatterns: ['*.html'],
+          globPatterns: ["*.html"],
         },
       },
     },
