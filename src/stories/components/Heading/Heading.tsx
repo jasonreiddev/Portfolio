@@ -1,14 +1,15 @@
 import React from "react"
 import { HeadingStyles as s } from "./Heading.styles"
 
-export interface ButtonProps {
+export interface HeadingProps {
   title: string
   kicker: string
+  subheading?: boolean
 }
 
-export const Heading = ({ title, kicker }: ButtonProps) => {
+export const Heading = ({ title, kicker, subheading }: HeadingProps) => {
   return (
-    <s.Container>
+    <s.Container subheading={subheading} as={subheading ? "h3" : "h2"}>
       {kicker && <s.Kicker>{kicker}</s.Kicker>}
       {title}
     </s.Container>
