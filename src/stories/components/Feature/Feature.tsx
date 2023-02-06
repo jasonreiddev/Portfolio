@@ -71,7 +71,7 @@ export const Feature = ({
       viewport={{ once: true }}
       variants={wrapperVariants}
     >
-      <s.Container>
+      <s.Container flip={flip}>
         <s.MotionImageWrapper variants={imageVariants}>
           {image && (
             <GatsbyImage
@@ -81,13 +81,16 @@ export const Feature = ({
           )}
         </s.MotionImageWrapper>
         <s.MotionContentWrapper variants={contentVariants}>
-          <s.ContentContainer flip={flip}>
-            <Heading title={heading} kicker={kicker} subheading />
-            {text && <s.Lead>{text}</s.Lead>}
-            {links && (
-              <ButtonList buttons={links} card={true} id="CTA-Button-List" />
-            )}
-          </s.ContentContainer>
+          <Heading title={heading} kicker={kicker} subheading />
+          {text && <s.Lead>{text}</s.Lead>}
+          {links && (
+            <ButtonList
+              buttons={links}
+              card={true}
+              id="CTA-Button-List"
+              align="left"
+            />
+          )}
         </s.MotionContentWrapper>
       </s.Container>
     </s.MotionWrapper>

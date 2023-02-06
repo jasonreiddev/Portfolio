@@ -16,24 +16,24 @@ const MotionWrapper = styled(motion.section)`
   }
 `
 
-const Container = styled.div`
+const MotionImageWrapper = styled(motion.div)``
+
+const MotionContentWrapper = styled(motion.div)``
+
+const Container = styled.div<FeatureListStylesProps>`
   display: grid;
   @media screen and (min-width: 40em) {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 32px;
   }
-`
 
-const MotionImageWrapper = styled(motion.div)``
-
-const MotionContentWrapper = styled(motion.div)``
-
-const ContentContainer = styled.div<FeatureListStylesProps>`
-  @media screen and (min-width: 40em) {
-    order: ${(p: FeatureListStylesProps) => {
-      return p.flip ? `-1` : `1`
-    }};
+  ${MotionContentWrapper} {
+    @media screen and (min-width: 40em) {
+      order: ${(p: FeatureListStylesProps) => {
+        return p.flip ? `-1` : `1`
+      }};
+    }
   }
 `
 
@@ -47,6 +47,5 @@ export const FeatureStyles = {
   Container,
   MotionImageWrapper,
   MotionContentWrapper,
-  ContentContainer,
   Lead,
 }

@@ -1,4 +1,8 @@
 import { ComponentStory } from "@storybook/react"
+import {
+  CMSIntegration,
+  WithButtons,
+} from "../../components/Feature/Feature.stories"
 
 import { FeatureList } from "./FeatureList"
 
@@ -14,5 +18,12 @@ const Template: ComponentStory<typeof FeatureList> = (args) => (
 export const Homepage = Template.bind({})
 Homepage.args = {
   heading: "Software Development Skills",
-  content: {},
+  content: [
+    {
+      ...CMSIntegration.args,
+    },
+    {
+      ...WithButtons.args,
+    },
+  ],
 }
