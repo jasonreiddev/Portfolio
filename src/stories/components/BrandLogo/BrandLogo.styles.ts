@@ -32,6 +32,12 @@ const LogoWrapper = styled("span")<BrandLogoStylesProps>`
         return p.card ? `var(--color-card-text)` : `var(--color-text)`
       }};
     }
+
+    :hover #JR-Active path {
+      stroke: ${(p: BrandLogoStylesProps) => {
+        return p.card ? `var(--color-card-active)` : `var(--color-active)`
+      }};
+    }
   }
 `
 

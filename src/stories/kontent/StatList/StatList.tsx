@@ -91,7 +91,11 @@ export const StatList = ({
           )}
         </s.ContentWrapper>
         {image && (
-          <s.MotionImageWrapper initial={{ x: 200 }} whileInView={{ x: 0 }}>
+          <s.MotionImageWrapper
+            initial={{ x: 200 }}
+            whileInView={{ x: 0 }}
+            viewport={{ once: true }}
+          >
             <GatsbyImage
               alt={image.alt}
               image={getImage(image.gatsbyImageData)}

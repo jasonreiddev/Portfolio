@@ -7,7 +7,7 @@ export const GlobalStyles = css`
       --color-text: #231f20;
       --color-primary: #231f20;
       --color-muted: #2aceb9;
-      --color-active: #001d3d;
+      --color-active: #683799;
       --color-black: #000;
       --color-white: #fff;
 
