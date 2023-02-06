@@ -51,9 +51,9 @@ export const CTA = ({ kicker, heading, text, links, image }: CTAProps) => {
         </s.ContentWrapper>
         {image && (
           <s.MotionImageWrapper
-            animate={{ skewX: 6, skewY: -6 }}
+            animate={{ skewX: [3, -3, 6], skewY: [0, -3, 3, -3] }}
             transition={{
-              duration: 5,
+              duration: 12,
               repeat: Infinity,
               repeatType: "reverse",
             }}

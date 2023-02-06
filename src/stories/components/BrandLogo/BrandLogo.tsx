@@ -26,7 +26,7 @@ const draw = {
 
 /* 256px 'Roboto Medium' */
 export const BrandLogo = ({
-  animate = false,
+  animate = true,
   size = "medium",
   card,
 }: BrandLogoProps) => {

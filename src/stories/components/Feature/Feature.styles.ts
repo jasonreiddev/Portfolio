@@ -16,7 +16,11 @@ const MotionWrapper = styled(motion.section)`
   }
 `
 
-const MotionImageWrapper = styled(motion.div)``
+const MotionImageWrapper = styled(motion.div)`
+  img {
+    max-width: 480px;
+  }
+`
 
 const MotionContentWrapper = styled(motion.div)``
 
