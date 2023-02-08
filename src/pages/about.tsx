@@ -54,6 +54,7 @@ export const query = graphql`
         ...HomepageBenefitListContent
         ...AboutLogoListContent
         ...HomepageCtaContent
+        ...TimelineContent
       }
     }
   }
