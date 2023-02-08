@@ -45,7 +45,7 @@ export const CTA = ({ kicker, heading, text, links, image }: CTAProps) => {
         <s.ContentWrapper>
           <Heading title={heading} kicker={kicker} />
           {text && <s.Lead>{text}</s.Lead>}
-          {links && (
+          {links && links.length && (
             <ButtonList buttons={links} card={true} id="CTA-Button-List" />
           )}
         </s.ContentWrapper>

@@ -83,7 +83,7 @@ export const Feature = ({
         <s.MotionContentWrapper variants={contentVariants}>
           <Heading title={heading} kicker={kicker} subheading />
           {text && <s.Lead>{text}</s.Lead>}
-          {links && (
+          {links && links.length > 0 && (
             <ButtonList
               buttons={links}
               card={true}

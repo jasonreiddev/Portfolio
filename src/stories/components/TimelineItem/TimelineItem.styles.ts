@@ -1,5 +1,6 @@
 import { styled } from "@linaria/react"
 import { motion } from "framer-motion"
+import { Container as ButtonListContainer } from "../../widgets/ButtonList/ButtonList.styles"
 
 export interface TimelineItemStylesProps {}
 
@@ -29,6 +30,10 @@ const ContentContainer = styled.div`
     transform: translate(6px, -10px);
   }
 
+  ${ButtonListContainer} {
+    margin-top: 16px;
+  }
+
   &::after {
     content: "";
     position: absolute;
@@ -45,14 +50,7 @@ const MotionWrapper = styled(motion.li)`
   display: grid;
   grid-template-columns: 1fr;
   padding: 0;
-
-  :first-child {
-    margin-top: 32px;
-  }
-
-  :last-child {
-    margin-bottom: 32px;
-  }
+  margin: 16px 0;
 
   @media screen and (min-width: 52em) {
     grid-template-columns: 1fr 1fr;
@@ -74,6 +72,14 @@ const MotionWrapper = styled(motion.li)`
         right: unset;
         left: -42px;
       }
+    }
+
+    :first-child {
+      margin-top: 32px;
+    }
+
+    :last-child {
+      margin-bottom: 32px;
     }
   }
 `

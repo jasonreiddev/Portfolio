@@ -86,7 +86,7 @@ export const StatList = ({
                 </li>
               ))}
           </s.StatContainer>
-          {links && (
+          {links && links.length > 0 && (
             <ButtonList buttons={links} card={true} id="CTA-Button-List" />
           )}
         </s.ContentWrapper>

@@ -146,6 +146,7 @@ export default function Footer() {
         <Flex variant="start" responsive>
           <FlexList variant="start" responsive>
             {links &&
+              links.length &&
               links.map((link) => (
                 <li key={link.id}>
                   <NavLink to={link.href} className="hover-footer-header">
