@@ -15,7 +15,7 @@ export const Container = styled.ul`
     position: absolute;
     width: 4px;
     height: 100%;
-    left: calc(100% - 18px);
+    left: calc(100% - 2px);
     z-index: -1;
     @media screen and (min-width: 52em) {
       left: calc(50% - 2px);

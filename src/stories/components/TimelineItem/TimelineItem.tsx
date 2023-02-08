@@ -33,7 +33,7 @@ export const TimelineItem = ({
         <s.Tag>{category}</s.Tag>
         <time>{new Date(date).toLocaleDateString("en-UK", dateFormat)}</time>
         {text && <s.Text>{text}</s.Text>}
-        {links && (
+        {links && links.length > 0 && (
           <ButtonList
             buttons={links}
             card={true}
