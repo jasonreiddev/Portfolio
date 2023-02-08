@@ -454,6 +454,23 @@ exports.createSchemaCustomization = async ({ actions }) => {
       image: HomepageImage
       html: String!
     }
+
+    interface TimelineItem implements Node {
+      id: ID!
+      category: String
+      date: Date
+      text: String
+      links: [HomepageLink]
+    }
+
+    interface Timeline implements Node & HomepageBlock {
+      id: ID!
+      blocktype: String
+      kicker: String
+      heading: String
+      text: String
+      items: [TimelineItem]
+    }
   `)
 
   actions.createTypes(/* GraphQl */ `
@@ -671,6 +688,24 @@ exports.createSchemaCustomization = async ({ actions }) => {
           type: "homepage_block"
         )
     }
+
+    type kontent_item_timeline_item implements Node & TimelineItem @dontInfer {
+      category: String @proxy(from: "elements.category.value")
+      date: Date @proxy(from: "elements.date.value")
+      text: String @proxy(from: "elements.text.value")
+      links: [HomepageLink]
+        @KontentNodesFromElement(variableName: "links", type: "homepage_link")
+    }
+
+    type kontent_item_timeline implements Node & Timeline & kontent_item_homepage_block & HomepageBlock
+      @dontInfer {
+      blocktype: String @blocktype
+      heading: String @proxy(from: "elements.heading.value")
+      kicker: String @proxy(from: "elements.kicker.value")
+      text: String @proxy(from: "elements.text.value")
+      items: [TimelineItem]
+        @KontentNodesFromElement(variableName: "items", type: "timeline_item")
+    }
   `)
 
   // CMS specific types for About page
@@ -806,4 +841,3 @@ exports.createPages = ({ actions }) => {
     component: require.resolve("./src/components/footer.tsx"),
   })
 }
-      
