@@ -46,27 +46,27 @@ module.exports = {
               `/index`,
               `/about/`,
             ],
-            globPatterns: ["**/*{.js,.json,.webp,.webmanifest,.woff,.woff2,.ttf,.eot,.css,.mjs,.svg,.mp3,icons/icon*,.ico}",],
-            runtimeCaching: [
-              {
-                  urlPattern: /(\.js$|\.css$|static\/)/,
-                  handler: `CacheFirst`,
-              },
-              {
-                  urlPattern: /^https?:.*\/page-data\/.*\.json/,
-                  handler: `NetworkFirst`,
-              },
-              {
-                  urlPattern: /^https?:.*\.(png|jpg|jpeg|webp|svg|gif|tiff|js|woff|woff2|json|css)$/,
-                  handler: `StaleWhileRevalidate`,
-              },
-              {
-                  // Google Fonts CSS
-                  urlPattern: /^https?:\/\/fonts\.googleapis\.com\/css/,
-                  handler: `StaleWhileRevalidate`,
-              },
-            ],
           },
+          globPatterns: ["**/*{.js,.json,.webp,.webmanifest,.woff,.woff2,.ttf,.eot,.css,.mjs,.svg,.mp3,icons/icon*,.ico}",],
+          runtimeCaching: [
+            {
+                urlPattern: /(\.js$|\.css$|static\/)/,
+                handler: `CacheFirst`,
+            },
+            {
+                urlPattern: /^https?:.*\/page-data\/.*\.json/,
+                handler: `NetworkFirst`,
+            },
+            {
+                urlPattern: /^https?:.*\.(png|jpg|jpeg|webp|svg|gif|tiff|js|woff|woff2|json|css)$/,
+                handler: `StaleWhileRevalidate`,
+            },
+            {
+                // Google Fonts CSS
+                urlPattern: /^https?:\/\/fonts\.googleapis\.com\/css/,
+                handler: `StaleWhileRevalidate`,
+            },
+          ],
         },
       },
     },
