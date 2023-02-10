@@ -3,6 +3,7 @@ require("dotenv").config({
 })
 
 module.exports = {
+  trailingSlash: "always",
   siteMetadata: {
     siteUrl: "https://jasonreid.dev/",
     title: "Jason Reid's Development Portfolio",
@@ -40,7 +41,31 @@ module.exports = {
       options: {
         workboxConfig: {
           /* Required for gatsby-plugin-manifest */
-          globPatterns: ["*.html"],
+          options: {
+            precachePages: [
+              `/index`,
+              `/about/`,
+            ],
+          globPatterns: ["**/*{.js,.json,.webp,.webmanifest,.woff,.woff2,.ttf,.eot,.css,.mjs,.svg,.mp3,icons/icon*,.ico}",],
+          runtimeCaching: [
+            {
+                urlPattern: /(\.js$|\.css$|static\/)/,
+                handler: `CacheFirst`,
+            },
+            {
+                urlPattern: /^https?:.*\/page-data\/.*\.json/,
+                handler: `NetworkFirst`,
+            },
+            {
+                urlPattern: /^https?:.*\.(png|jpg|jpeg|webp|svg|gif|tiff|js|woff|woff2|json|css)$/,
+                handler: `StaleWhileRevalidate`,
+            },
+            {
+                // Google Fonts CSS
+                urlPattern: /^https?:\/\/fonts\.googleapis\.com\/css/,
+                handler: `StaleWhileRevalidate`,
+            },
+          ],
         },
       },
     },
