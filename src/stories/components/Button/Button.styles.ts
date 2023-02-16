@@ -5,7 +5,7 @@ import { Link } from "gatsby"
 export interface ButtonStylesProps {
   primary: boolean
   size: "small" | "medium" | "large"
-  card: boolean
+  card?: boolean
 }
 
 const MotionWrapper = styled(motion.div)`

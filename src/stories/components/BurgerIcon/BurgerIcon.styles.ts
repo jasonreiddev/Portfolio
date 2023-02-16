@@ -5,7 +5,7 @@ export interface BurgerIconStylesProps {
   card: boolean
 }
 
-const LogoWrapper = styled("span")<BurgerIconStylesProps>`
+const BurgerWrapper = styled("span")<BurgerIconStylesProps>`
   width: fit-content;
   svg {
     width: ${(p: BurgerIconStylesProps) => {
@@ -43,5 +43,5 @@ const LogoWrapper = styled("span")<BurgerIconStylesProps>`
 `
 
 export const BurgerIconStyles = {
-  LogoWrapper,
+  BurgerWrapper,
 }

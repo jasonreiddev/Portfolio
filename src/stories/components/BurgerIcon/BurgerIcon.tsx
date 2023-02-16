@@ -39,7 +39,7 @@ export const BurgerIcon = ({
   card,
 }: BurgerIconProps) => {
   return (
-    <s.LogoWrapper size={size} card={card}>
+    <s.BurgerWrapper size={size} card={card}>
       <motion.svg
         xmlns="http://www.w3.org/2000/svg"
         xmlnsXlink="http://www.w3.org/1999/xlink"
@@ -73,6 +73,6 @@ export const BurgerIcon = ({
           animate={open ? bottom : initial}
         />
       </motion.svg>
-    </s.LogoWrapper>
+    </s.BurgerWrapper>
   )
 }
