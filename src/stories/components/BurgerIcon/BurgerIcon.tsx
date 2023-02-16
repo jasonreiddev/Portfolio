@@ -7,6 +7,8 @@ import {
 import { useState } from "react"
 
 export interface BurgerIconProps {
+  open: boolean
+  onClick: () => void
   size?: BurgerIconStylesProps["size"]
   card?: BurgerIconStylesProps["card"]
 }
@@ -30,9 +32,12 @@ const bottom = {
   translateY: -150,
 }
 
-export const BurgerIcon = ({ size = "medium", card }: BurgerIconProps) => {
-  const [isOpen, setOpen] = useState(false)
-
+export const BurgerIcon = ({
+  open = false,
+  onClick,
+  size = "medium",
+  card,
+}: BurgerIconProps) => {
   return (
     <s.LogoWrapper size={size} card={card}>
       <motion.svg
@@ -40,11 +45,7 @@ export const BurgerIcon = ({ size = "medium", card }: BurgerIconProps) => {
         xmlnsXlink="http://www.w3.org/1999/xlink"
         id="BurgerMenu"
         viewBox="0 0 300 300"
-        shapeRendering="geometricPrecision"
-        onClick={() => {
-          console.log(isOpen)
-          setOpen(!isOpen)
-        }}
+        onClick={onClick}
         transition={{ type: "spring", stiffness: 260, damping: 20 }}
       >
         <motion.line
@@ -53,7 +54,7 @@ export const BurgerIcon = ({ size = "medium", card }: BurgerIconProps) => {
           x2="300"
           y2="0"
           initial={initial}
-          animate={isOpen ? top : initial}
+          animate={open ? top : initial}
         />
         <motion.line
           x1="0"
@@ -61,7 +62,7 @@ export const BurgerIcon = ({ size = "medium", card }: BurgerIconProps) => {
           x2="300"
           y2="150"
           initial={initial}
-          animate={isOpen ? center : initial}
+          animate={open ? center : initial}
         />
         <motion.line
           x1="0"
@@ -69,7 +70,7 @@ export const BurgerIcon = ({ size = "medium", card }: BurgerIconProps) => {
           x2="300"
           y2="300"
           initial={initial}
-          animate={isOpen ? bottom : initial}
+          animate={open ? bottom : initial}
         />
       </motion.svg>
     </s.LogoWrapper>

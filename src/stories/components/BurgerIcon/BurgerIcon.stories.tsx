@@ -11,34 +11,42 @@ const Template: ComponentStory<typeof BurgerIcon> = (args) => (
   <BurgerIcon {...args} />
 )
 
-export const Default = Template.bind({})
-Default.args = {
+export const Animate = Template.bind({})
+Animate.args = {
+  open: true,
   size: "medium",
   text: "Primary",
 }
 
+export const Closed = Template.bind({})
+Closed.args = {
+  size: "medium",
+  open: false,
+  text: "Secondary",
+}
+
 export const Large = Template.bind({})
 Large.args = {
-  animate: true,
+  open: true,
   size: "large",
   text: "Large",
 }
 
 export const Small = Template.bind({})
 Small.args = {
-  animate: true,
+  open: true,
   size: "small",
   text: "Small",
 }
 
-export const Card = Template.bind({})
-Card.args = {
-  animate: true,
+export const CardAnimate = Template.bind({})
+CardAnimate.args = {
+  open: true,
   size: "medium",
   text: "Primary",
   card: true,
 }
-Card.parameters = {
+CardAnimate.parameters = {
   backgrounds: {
     values: [{ name: "background", value: "var(--color-card-primary)" }],
   },
