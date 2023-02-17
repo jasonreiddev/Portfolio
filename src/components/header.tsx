@@ -1,6 +1,6 @@
 import * as React from "react"
 import { graphql, useStaticQuery } from "gatsby"
-
+import { Menu, X } from "react-feather"
 import {
   Container,
   Flex,
@@ -8,12 +8,20 @@ import {
   Space,
   NavLink,
   Button,
+  Nudge,
   VisuallyHidden,
 } from "./ui"
-import { desktopHeaderNavWrapper } from "./header.css"
+import {
+  mobileNavOverlay,
+  mobileNavLink,
+  desktopHeaderNavWrapper,
+  mobileHeaderNavWrapper,
+  mobileNavSVGColorWrapper,
+} from "./header.css"
 import NavItemGroup, { NavItemGroupNavItem } from "./nav-item-group"
 import { ThemeToggler } from "../stories/components/ThemeToggler/ThemeToggler"
 import { BrandLogo } from "../stories/components/BrandLogo/BrandLogo"
+import { BurgerIcon } from "../stories/components/BurgerIcon/BurgerIcon"
 
 type NavItem = {
   id: string
@@ -81,6 +89,15 @@ export default function Header() {
   `)
 
   const { navItems, cta } = data.layout.header
+  const [isOpen, setOpen] = React.useState(false)
+
+  React.useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflowY = "hidden"
+    } else {
+      document.body.style.overflowY = "visible"
+    }
+  }, [isOpen])
 
   return (
     <header>
@@ -104,7 +121,7 @@ export default function Header() {
                     ) : (
                       <NavLink
                         to={navItem.href}
-                        className="hover-footer-header hide-mobile"
+                        className="hover-footer-header"
                       >
                         {navItem.text}
                       </NavLink>
@@ -113,12 +130,61 @@ export default function Header() {
                 ))}
             </FlexList>
           </nav>
-          <div>
-            {cta && <Button to={cta.href}>{cta.text}</Button>}{" "}
-            {<ThemeToggler />}
-          </div>
+          <div>{cta && <Button to={cta.href}>{cta.text}</Button>}</div>
         </Flex>
       </Container>
+
+      <Container className={mobileHeaderNavWrapper[isOpen ? "open" : "closed"]}>
+        <Space size={2} />
+        <Flex variant="spaceBetween">
+          <span
+            className={
+              mobileNavSVGColorWrapper[isOpen ? "reversed" : "primary"]
+            }
+          >
+            <NavLink to="/">
+              <VisuallyHidden>Home</VisuallyHidden>
+              <BrandLogo />
+            </NavLink>
+          </span>
+          <Flex>
+            <Space />
+            <div>
+              {cta && (
+                <Button to={cta.href} variant={isOpen ? "reversed" : "primary"}>
+                  {cta.text}
+                </Button>
+              )}
+            </div>
+            <ThemeToggler />
+            <Nudge right={3}>
+              <BurgerIcon onClick={() => setOpen(!isOpen)} open={isOpen} />
+            </Nudge>
+          </Flex>
+        </Flex>
+      </Container>
+      {isOpen && (
+        <div className={mobileNavOverlay}>
+          <nav>
+            <FlexList responsive variant="stretch">
+              {navItems?.map((navItem) => (
+                <li key={navItem.id}>
+                  {navItem.navItemType === "Group" ? (
+                    <NavItemGroup
+                      name={navItem.name}
+                      navItems={navItem.navItems}
+                    />
+                  ) : (
+                    <NavLink to={navItem.href} className={mobileNavLink}>
+                      {navItem.text}
+                    </NavLink>
+                  )}
+                </li>
+              ))}
+            </FlexList>
+          </nav>
+        </div>
+      )}
     </header>
   )
 }

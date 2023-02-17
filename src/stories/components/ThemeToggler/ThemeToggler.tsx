@@ -7,20 +7,18 @@ export const ThemeToggler = () => {
   return (
     <GatsbyThemeToggler>
       {({ theme, toggleTheme }) => (
-        <label>
-          <s.MotionButton
-            whileTap={{ rotate: 180 }}
-            onClick={() => {
-              toggleTheme(theme == "dark" ? "light" : "dark")
-            }}
-            aria-label={
-              theme == "dark" ? "Switch to light theme" : "Switch to dark theme"
-            }
-          >
-            <Moon className="display-dark" />
-            <Sun className="hide-dark" />
-          </s.MotionButton>
-        </label>
+        <s.MotionButton
+          whileTap={{ rotate: 180 }}
+          onClick={() => {
+            toggleTheme(theme == "dark" ? "light" : "dark")
+          }}
+          aria-label={
+            theme == "dark" ? "Switch to light theme" : "Switch to dark theme"
+          }
+        >
+          <Moon className="display-dark" />
+          <Sun className="hide-dark" />
+        </s.MotionButton>
       )}
     </GatsbyThemeToggler>
   )

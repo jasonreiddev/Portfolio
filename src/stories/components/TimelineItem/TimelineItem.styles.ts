@@ -13,7 +13,7 @@ const Circle = styled.span`
   position: absolute;
   top: calc(50% - 10px);
   right: -42px;
-  z-index: 100;
+  z-index: 1;
 `
 
 const ContentContainer = styled.div`
