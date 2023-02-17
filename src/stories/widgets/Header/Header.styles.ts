@@ -1,4 +1,5 @@
 import { styled } from "@linaria/react"
+import { motion } from "framer-motion"
 import { BurgerIconStyles } from "../../components/BurgerIcon/BurgerIcon.styles"
 import { ThemeTogglerStyles } from "../../components/ThemeToggler/ThemeToggler.styles"
 
@@ -34,7 +35,7 @@ export const Container = styled.header`
 export const Header = styled.header`
   display: flex;
   flex-direction: row;
-  margin: 16px;
+  padding: 16px;
   justify-content: space-between;
   gap: 16px;
 
@@ -68,13 +69,13 @@ export const DesktopNav = styled.nav`
   }
 `
 
-export const MobileNav = styled.nav`
+export const MobileNav = styled(motion.nav)`
   height: 100vh;
   gap: 16px;
   position: fixed;
   background: var(--color-card-background);
   width: 100%;
-  z-index: 1;
+  z-index: 2;
   padding: 16px;
   @media screen and (min-width: 40em) {
     display: none;

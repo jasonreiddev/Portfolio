@@ -45,8 +45,9 @@ export const Header = ({ navItems, cta }: HeaderProps) => {
   return (
     <s.Container>
       <s.Header>
-        <BrandLogo />
-
+        <Link to="/">
+          <BrandLogo />
+        </Link>
         <s.DesktopNav>
           <ul>
             {navItems?.map((navItem) => (
@@ -64,7 +65,6 @@ export const Header = ({ navItems, cta }: HeaderProps) => {
             ))}
           </ul>
         </s.DesktopNav>
-
         {cta && (
           <Button
             href={cta.href}
@@ -75,30 +75,31 @@ export const Header = ({ navItems, cta }: HeaderProps) => {
             size="small"
           />
         )}
-
         <ThemeToggler />
-
         <BurgerIcon onClick={() => setOpen(!isOpen)} open={isOpen} />
       </s.Header>
-      {isOpen && (
-        <s.MobileNav>
-          <ul>
-            {navItems?.map((navItem) => (
-              <li key={navItem.id}>
-                {navItem.navItemType === "Group" ? (
-                  // <NavItemGroup
-                  //   name={navItem.name}
-                  //   navItems={navItem.navItems}
-                  // />
-                  <></>
-                ) : (
-                  <Link to={navItem.href}>{navItem.text}</Link>
-                )}
-              </li>
-            ))}
-          </ul>
-        </s.MobileNav>
-      )}
+      <s.MobileNav
+        initial={{ right: "-100%" }}
+        animate={{ right: isOpen ? 0 : "-100%" }}
+        transition={{ duration: 0.5 }}
+      >
+        <ul>
+          {navItems?.map((navItem) => (
+            <li key={navItem.id}>
+              {navItem.navItemType === "Group" ? (
+                // TODO Migrate "NavItemGroup"
+                // <NavItemGroup
+                //   name={navItem.name}
+                //   navItems={navItem.navItems}
+                // />
+                <></>
+              ) : (
+                <Link to={navItem.href}>{navItem.text}</Link>
+              )}
+            </li>
+          ))}
+        </ul>
+      </s.MobileNav>
     </s.Container>
   )
 }
