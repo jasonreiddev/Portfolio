@@ -43,8 +43,8 @@ export const Header = ({ navItems, cta }: HeaderProps) => {
   }, [isOpen])
 
   return (
-    <>
-      <s.Container>
+    <s.Container>
+      <s.Header>
         <BrandLogo />
 
         <s.DesktopNav>
@@ -79,7 +79,7 @@ export const Header = ({ navItems, cta }: HeaderProps) => {
         <ThemeToggler />
 
         <BurgerIcon onClick={() => setOpen(!isOpen)} open={isOpen} />
-      </s.Container>
+      </s.Header>
       {isOpen && (
         <s.MobileNav>
           <ul>
@@ -99,6 +99,6 @@ export const Header = ({ navItems, cta }: HeaderProps) => {
           </ul>
         </s.MobileNav>
       )}
-    </>
+    </s.Container>
   )
 }
