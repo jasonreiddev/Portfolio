@@ -2,6 +2,10 @@ import { css } from "@linaria/core"
 
 export const GlobalStyles = css`
   :global() {
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       --color-background: #41d9c5;
       --color-text: #231f20;
@@ -52,6 +56,10 @@ export const GlobalStyles = css`
 
       .hover-footer-header:hover {
         color: var(--color-active);
+      }
+
+      .copyright {
+        min-width: 150px;
       }
 
       @media screen and (max-width: 40em) {

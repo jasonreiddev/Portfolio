@@ -166,7 +166,9 @@ export default function Footer() {
                 </li>
               ))}
           </FlexList>
-          <Text variant="small">{copyright}</Text>
+          <Text variant="small" className="copyright">
+            {copyright}
+          </Text>
         </Flex>
       </Container>
       <Space size={3} />
