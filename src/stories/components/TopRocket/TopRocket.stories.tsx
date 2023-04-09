@@ -13,35 +13,35 @@ const Template: ComponentStory<typeof TopRocket> = (args) => (
 
 export const Animate = Template.bind({})
 Animate.args = {
-  open: true,
+  takeOff: true,
   size: "medium",
   text: "Primary",
 }
 
-export const Closed = Template.bind({})
-Closed.args = {
+export const Stationary = Template.bind({})
+Stationary.args = {
   size: "medium",
-  open: false,
+  takeOff: false,
   text: "Secondary",
 }
 
 export const Large = Template.bind({})
 Large.args = {
-  open: true,
+  takeOff: true,
   size: "large",
   text: "Large",
 }
 
 export const Small = Template.bind({})
 Small.args = {
-  open: true,
+  takeOff: true,
   size: "small",
   text: "Small",
 }
 
 export const CardAnimate = Template.bind({})
 CardAnimate.args = {
-  open: true,
+  takeOff: true,
   size: "medium",
   text: "Primary",
   card: true,

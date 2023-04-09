@@ -64,15 +64,20 @@ module.exports = {
 
   babel: async (options) => ({
     ...options,
+    sourceType: "unambiguous",
     presets: [
-      "@babel/preset-env",
       [
-        "@babel/preset-react",
+        "@babel/preset-env",
         {
-          runtime: "automatic",
+          targets: {
+            chrome: 100,
+          },
         },
       ],
+      "@babel/preset-typescript",
+      "@babel/preset-react",
       "@linaria/babel-preset",
     ],
+    plugins: ["remove-graphql-queries", "react-require"],
   }),
 }

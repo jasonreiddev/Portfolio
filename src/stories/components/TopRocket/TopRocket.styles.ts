@@ -6,8 +6,12 @@ export interface TopRocketStylesProps {
 }
 
 const TopRocketWrapper = styled("span")<TopRocketStylesProps>`
+  position: fixed;
+  right: 18px;
+  bottom: 24px;
   width: fit-content;
-  svg {
+
+  div {
     width: ${(p: TopRocketStylesProps) => {
       switch (p.size) {
         case "small": {
@@ -26,17 +30,34 @@ const TopRocketWrapper = styled("span")<TopRocketStylesProps>`
       }
     }};
     overflow: visible;
-    cursor: pointer;
-    line {
-      stroke: ${(p: TopRocketStylesProps) => {
-        return p.card ? `var(--color-card-text)` : `var(--color-text)`
-      }};
-      stroke-width: 32px;
+
+    svg {
+      transform: scale(1.2);
     }
 
-    :hover line {
+    & > svg {
+      width: 100%;
+      height: auto;
+      cursor: pointer;
+
+      fill: ${(p: TopRocketStylesProps) => {
+        return p.card ? `var(--color-card-text)` : `var(--color-text)`
+      }};
+
+      &:hover {
+        fill: ${(p: TopRocketStylesProps) => {
+          return p.card ? `var(--color-card-active)` : `var(--color-active)`
+        }};
+      }
+    }
+
+    span > svg {
+      transform: rotate(180deg) translateY(20%);
+      width: 100%;
+      height: auto;
+
       stroke: ${(p: TopRocketStylesProps) => {
-        return p.card ? `var(--color-card-active)` : `var(--color-active)`
+        return p.card ? `var(--color-card-text)` : `var(--color-text)`
       }};
     }
   }

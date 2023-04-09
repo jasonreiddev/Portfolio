@@ -1,75 +1,79 @@
 import * as React from "react"
 import { motion } from "framer-motion"
 import { TopRocketStyles as s, TopRocketStylesProps } from "./TopRocket.styles"
-import { useState } from "react"
+import { RiRocketLine } from "react-icons/ri"
+import { TbFlame } from "react-icons/tb"
 
 export interface TopRocketProps {
-  open: boolean
+  takeOff: boolean
+  show: boolean
+  hideReset: boolean
   onClick: () => void
   size?: TopRocketStylesProps["size"]
   card?: TopRocketStylesProps["card"]
 }
 
-const initial = {
-  rotate: 0,
-  translateY: 0,
+const belowPage = {
   opacity: 1,
-}
-const top = {
-  rotate: 45,
-  translateY: 150,
+  translateY: +200,
 }
 
-const center = {
+const onPage = {
+  opacity: 1,
+  translateY: 0,
+}
+
+const abovePage = {
+  opacity: 1,
+  translateY: -window.innerHeight,
+}
+
+const off = {
   opacity: 0,
+  scale: 0,
+  translateY: -3,
 }
 
-const bottom = {
-  rotate: -45,
-  translateY: -150,
+const on = {
+  opacity: 1,
+  scale: 1,
+  translateY: 0,
 }
 
 export const TopRocket = ({
-  open = false,
+  show = false,
+  takeOff = false,
+  hideReset = true,
   onClick,
   size = "medium",
   card,
 }: TopRocketProps) => {
   return (
     <s.TopRocketWrapper size={size} card={card}>
-      <motion.svg
-        xmlns="http://www.w3.org/2000/svg"
-        xmlnsXlink="http://www.w3.org/1999/xlink"
-        id="TopRocketMenu"
-        viewBox="0 0 300 300"
-        onClick={onClick}
-        transition={{ type: "spring", stiffness: 260, damping: 20 }}
+      <motion.div
+        transition={
+          show
+            ? takeOff
+              ? { ease: "easeIn", duration: 1 }
+              : { ease: "easeOut", duration: 2 }
+            : { duration: hideReset ? 0 : 2 }
+        }
+        initial={show ? onPage : belowPage}
+        animate={takeOff ? abovePage : show ? onPage : belowPage}
       >
-        <motion.line
-          x1="0"
-          y1="0"
-          x2="300"
-          y2="0"
-          initial={initial}
-          animate={open ? top : initial}
-        />
-        <motion.line
-          x1="0"
-          y1="150"
-          x2="300"
-          y2="150"
-          initial={initial}
-          animate={open ? center : initial}
-        />
-        <motion.line
-          x1="0"
-          y1="300"
-          x2="300"
-          y2="300"
-          initial={initial}
-          animate={open ? bottom : initial}
-        />
-      </motion.svg>
+        <RiRocketLine onClick={onClick} aria-label="Scroll to top" />
+        <motion.span
+          transition={
+            takeOff
+              ? { ease: "easeIn", duration: 0.2 }
+              : { ease: "easeOut", duration: 0 }
+          }
+          initial={off}
+          animate={takeOff ? on : off}
+        >
+          <TbFlame />
+        </motion.span>
+      </motion.div>
     </s.TopRocketWrapper>
   )
 }
