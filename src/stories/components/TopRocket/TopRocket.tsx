@@ -13,33 +13,6 @@ export interface TopRocketProps {
   card?: TopRocketStylesProps["card"]
 }
 
-const belowPage = {
-  opacity: 1,
-  translateY: +200,
-}
-
-const onPage = {
-  opacity: 1,
-  translateY: 0,
-}
-
-const abovePage = {
-  opacity: 1,
-  translateY: -window.innerHeight,
-}
-
-const off = {
-  opacity: 0,
-  scale: 0,
-  translateY: -3,
-}
-
-const on = {
-  opacity: 1,
-  scale: 1,
-  translateY: 0,
-}
-
 export const TopRocket = ({
   show = false,
   takeOff = false,
@@ -48,6 +21,39 @@ export const TopRocket = ({
   size = "medium",
   card,
 }: TopRocketProps) => {
+  const [innerHeight, setInnerHeight] = React.useState(0)
+
+  React.useEffect(() => {
+    setInnerHeight(window.innerHeight)
+  }, [])
+
+  const belowPage = {
+    opacity: 1,
+    translateY: +200,
+  }
+
+  const onPage = {
+    opacity: 1,
+    translateY: 0,
+  }
+
+  const abovePage = {
+    opacity: 1,
+    translateY: -innerHeight,
+  }
+
+  const off = {
+    opacity: 0,
+    scale: 0,
+    translateY: -3,
+  }
+
+  const on = {
+    opacity: 1,
+    scale: 1,
+    translateY: 0,
+  }
+
   return (
     <s.TopRocketWrapper size={size} card={card}>
       <motion.div
