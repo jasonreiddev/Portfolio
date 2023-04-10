@@ -21,11 +21,16 @@ export const TopRocket = ({
   size = "medium",
   card,
 }: TopRocketProps) => {
-  const [innerHeight, setInnerHeight] = React.useState(0)
+  const [windowHeight, setWindowHeight] = React.useState(0)
 
   React.useEffect(() => {
-    setInnerHeight(window.innerHeight)
+    setWindowHeight(window.outerHeight)
+    window.addEventListener("resize", handleResize)
   }, [])
+
+  const handleResize = () => {
+    setWindowHeight(window.outerHeight)
+  }
 
   const belowPage = {
     opacity: 1,
@@ -39,7 +44,7 @@ export const TopRocket = ({
 
   const abovePage = {
     opacity: 1,
-    translateY: -innerHeight,
+    translateY: -windowHeight,
   }
 
   const off = {
@@ -66,8 +71,13 @@ export const TopRocket = ({
         }
         initial={show ? onPage : belowPage}
         animate={takeOff ? abovePage : show ? onPage : belowPage}
+        whileHover={{ scale: 1.2, transition: { duration: 0.2 } }}
       >
-        <RiRocketLine onClick={onClick} aria-label="Scroll to top" />
+        <RiRocketLine
+          onClick={() => onClick()}
+          aria-label="Scroll to Top"
+          title="Scroll to Top"
+        />
         <motion.span
           transition={
             takeOff

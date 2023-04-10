@@ -7,7 +7,7 @@ export interface TopRocketStylesProps {
 
 const TopRocketWrapper = styled("span")<TopRocketStylesProps>`
   position: fixed;
-  right: 18px;
+  right: 20px;
   bottom: 24px;
   width: fit-content;
 
@@ -44,10 +44,12 @@ const TopRocketWrapper = styled("span")<TopRocketStylesProps>`
         return p.card ? `var(--color-card-text)` : `var(--color-text)`
       }};
 
-      &:hover {
-        fill: ${(p: TopRocketStylesProps) => {
-          return p.card ? `var(--color-card-active)` : `var(--color-active)`
-        }};
+      @media (hover: hover) and (pointer: fine) {
+        &:hover {
+          fill: ${(p: TopRocketStylesProps) => {
+            return p.card ? `var(--color-card-active)` : `var(--color-active)`
+          }};
+        }
       }
     }
 

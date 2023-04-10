@@ -1,4 +1,5 @@
 import { css } from "@linaria/core"
+import { TopRocketStyles } from "./stories/components/TopRocket/TopRocket.styles"
 
 export const GlobalStyles = css`
   :global() {
@@ -42,6 +43,18 @@ export const GlobalStyles = css`
 
         .hide-dark {
           display: none;
+        }
+      }
+
+      &:not(.dark) {
+        ${TopRocketStyles.TopRocketWrapper} > div > svg {
+          background-color: var(--color-background);
+          fill: var(--color-primary);
+          border-radius: 8px;
+
+          &:hover {
+            background-color: var(--color-muted);
+          }
         }
       }
 
