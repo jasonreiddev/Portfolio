@@ -14,7 +14,7 @@ const MotionWrapper = styled(motion.div)`
 
 const Container = styled.div`
   width: 100%;
-  background-color: var(--color-card-background);
+  background-color: var(--color-card-background-opaque);
   color: var(--color-card-text);
   border-radius: 24px;
   overflow: hidden;

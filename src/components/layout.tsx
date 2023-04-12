@@ -3,6 +3,7 @@ import { GlobalStyles } from "../global.styles"
 import { Slice } from "gatsby"
 import { TopRocket } from "../stories/components/TopRocket/TopRocket"
 import { useScroll, useVelocity } from "framer-motion"
+import { Parallax } from "../stories/components/Parallax/Parallax"
 interface LayoutProps {
   children?: React.ReactNode
 }
@@ -27,6 +28,17 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
     })
   }, [scrollVelocity])
 
+  const [windowHeight, setWindowHeight] = React.useState(0)
+
+  React.useEffect(() => {
+    setWindowHeight(window.outerHeight)
+    window.addEventListener("resize", handleResize)
+  }, [])
+
+  const handleResize = () => {
+    setWindowHeight(window.outerHeight)
+  }
+
   const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms))
 
   const handleClick = async () => {
@@ -49,6 +61,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
       <Slice alias="footer" />
 
       <TopRocket
+        windowHeight={windowHeight}
         onClick={() => {
           handleClick()
         }}
@@ -56,6 +69,8 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
         takeOff={takeOff}
         hideReset={hideReset}
       />
+
+      <Parallax windowHeight={windowHeight} scrollYProgress={scrollYProgress} />
     </div>
   )
 }

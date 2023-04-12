@@ -20,6 +20,7 @@ export const GlobalStyles = css`
       --color-card-primary: #231f20;
       --color-card-muted: #303030;
       --color-card-background: #231f20;
+      --color-card-background-opaque: #231f20e8;
       --color-card-text: #41d9c5;
 
       .display-dark {

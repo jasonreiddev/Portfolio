@@ -22,7 +22,7 @@ const ContentContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-end;
-  background-color: var(--color-card-background);
+  background-color: var(--color-card-background-opaque);
   color: var(--color-card-text);
   padding: 16px;
 

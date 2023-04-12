@@ -14,6 +14,7 @@ const MotionWrapper = styled(motion.div)`
 
 const Container = styled.div`
   width: 100%;
+  // TODO opacity with --color-card-background, requires transparent image
   background-color: var(--color-card-background);
   color: var(--color-card-text);
   border-radius: 24px;

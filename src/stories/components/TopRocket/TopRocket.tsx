@@ -5,6 +5,7 @@ import { RiRocketLine } from "react-icons/ri"
 import { TbFlame } from "react-icons/tb"
 
 export interface TopRocketProps {
+  windowHeight: number
   takeOff: boolean
   show: boolean
   hideReset: boolean
@@ -14,6 +15,7 @@ export interface TopRocketProps {
 }
 
 export const TopRocket = ({
+  windowHeight,
   show = false,
   takeOff = false,
   hideReset = true,
@@ -21,17 +23,6 @@ export const TopRocket = ({
   size = "medium",
   card,
 }: TopRocketProps) => {
-  const [windowHeight, setWindowHeight] = React.useState(0)
-
-  React.useEffect(() => {
-    setWindowHeight(window.outerHeight)
-    window.addEventListener("resize", handleResize)
-  }, [])
-
-  const handleResize = () => {
-    setWindowHeight(window.outerHeight)
-  }
-
   const belowPage = {
     opacity: 1,
     translateY: +200,
