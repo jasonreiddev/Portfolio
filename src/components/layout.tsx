@@ -28,14 +28,17 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
     })
   }, [scrollVelocity])
 
+  const [windowWidth, setWindowWidth] = React.useState(0)
   const [windowHeight, setWindowHeight] = React.useState(0)
 
   React.useEffect(() => {
+    setWindowWidth(window.outerWidth)
     setWindowHeight(window.outerHeight)
     window.addEventListener("resize", handleResize)
   }, [])
 
   const handleResize = () => {
+    setWindowWidth(window.outerWidth)
     setWindowHeight(window.outerHeight)
   }
 
@@ -70,7 +73,11 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
         hideReset={hideReset}
       />
 
-      <Parallax windowHeight={windowHeight} scrollYProgress={scrollYProgress} />
+      <Parallax
+        windowWidth={windowWidth}
+        windowHeight={windowHeight}
+        scrollYProgress={scrollYProgress}
+      />
     </div>
   )
 }
