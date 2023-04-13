@@ -22,12 +22,13 @@ const ContentContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-end;
-  background-color: var(--color-card-background-opaque);
+  background-color: var(--color-card-background);
   color: var(--color-card-text);
-  padding: 16px;
+  padding: 24px 16px 16px;
+  border-radius: 16px;
 
   time {
-    transform: translate(6px, -10px);
+    transform: translate(6px, -6px);
   }
 
   ${ButtonListContainer} {
@@ -90,7 +91,7 @@ const Tag = styled.span`
   padding: 5px;
   text-transform: uppercase;
   position: absolute;
-  top: 6px;
+  top: 18px;
   left: 12px;
   letter-spacing: 1px;
 `
