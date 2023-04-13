@@ -1,35 +1,53 @@
 import * as React from "react"
-import { motion } from "framer-motion"
+import { motion, MotionValue, useVelocity } from "framer-motion"
 import { TopRocketStyles as s, TopRocketStylesProps } from "./TopRocket.styles"
 import { RiRocketLine } from "react-icons/ri"
 import { TbFlame } from "react-icons/tb"
 
 export interface TopRocketProps {
-  takeOff: boolean
-  show: boolean
-  hideReset: boolean
-  onClick: () => void
+  windowHeight: number
+  scrollYProgress: MotionValue<number>
   size?: TopRocketStylesProps["size"]
   card?: TopRocketStylesProps["card"]
 }
 
+const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms))
+
 export const TopRocket = ({
-  show = false,
-  takeOff = false,
-  hideReset = true,
-  onClick,
+  windowHeight,
   size = "medium",
   card,
+  scrollYProgress,
 }: TopRocketProps) => {
-  const [windowHeight, setWindowHeight] = React.useState(0)
+  const [show, setShow] = React.useState(false)
+  const [takeOff, setTakeOff] = React.useState(false)
+  const [hideReset, setHideReset] = React.useState(false)
+
+  const scrollVelocity = useVelocity(scrollYProgress)
 
   React.useEffect(() => {
-    setWindowHeight(window.outerHeight)
-    window.addEventListener("resize", handleResize)
-  }, [])
+    return scrollVelocity.onChange((latestVelocity) => {
+      if (latestVelocity < 0 && window.pageYOffset == 0) {
+        setShow(false)
+      }
 
-  const handleResize = () => {
-    setWindowHeight(window.outerHeight)
+      if (latestVelocity > 0) {
+        setShow(true)
+      }
+    })
+  }, [scrollVelocity])
+
+  const handleClick = async () => {
+    window.scrollTo(0, 0)
+    setTakeOff(true)
+    setHideReset(true)
+
+    await delay(2000)
+    setTakeOff(false)
+    setShow(false)
+
+    await delay(1)
+    setHideReset(false)
   }
 
   const belowPage = {
@@ -74,7 +92,7 @@ export const TopRocket = ({
         whileHover={{ scale: 1.2, transition: { duration: 0.2 } }}
       >
         <RiRocketLine
-          onClick={() => onClick()}
+          onClick={() => handleClick()}
           aria-label="Scroll to Top"
           title="Scroll to Top"
         />

@@ -5,7 +5,7 @@ const MotionWrapper = styled(motion.div)`
   max-width: 1280px;
   margin-left: auto;
   margin-right: auto;
-  padding: 32px 0;
+  padding: 32px 16px;
 
   @media screen and (min-width: 52em) {
     padding: 64px 32px;
@@ -14,6 +14,7 @@ const MotionWrapper = styled(motion.div)`
 
 const Container = styled.div`
   width: 100%;
+  // TODO opacity with --color-card-background, requires transparent image
   background-color: var(--color-card-background);
   color: var(--color-card-text);
   border-radius: 24px;

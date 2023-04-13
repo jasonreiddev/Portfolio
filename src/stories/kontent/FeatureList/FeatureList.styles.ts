@@ -13,9 +13,9 @@ const MotionWrapper = styled(motion.div)`
 `
 
 const Container = styled.div`
-  border-radius: 24px;
   overflow: hidden;
-  background-color: var(--color-muted);
+  background-color: var(--color-card-background-opaque);
+  color: var(--color-card-text);
   display: flex;
   flex-direction: column;
   align-items: center;
