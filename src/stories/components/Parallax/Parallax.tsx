@@ -5,8 +5,8 @@ import { ThemeToggler } from "gatsby-plugin-dark-mode"
 import {} from "gatsby-plugin-dark-mode"
 
 export interface ParallaxProps {
-  windowWidth: number
-  windowHeight: number
+  pageWidth: number
+  pageHeight: number
   scrollYProgress: MotionValue<number>
   speed?: number
 }
@@ -18,12 +18,12 @@ interface DotGroup {
 }
 
 export const Parallax = ({
-  windowWidth,
-  windowHeight,
+  pageWidth,
+  pageHeight,
   scrollYProgress,
   speed = 100,
 }: ParallaxProps) => {
-  const dotsToShow = Math.floor(Math.sqrt(windowWidth * windowHeight) / 80)
+  const dotsToShow = Math.floor(Math.sqrt(pageWidth * pageHeight) / 80)
   const distances = [1, 2, 3]
   const dotGroups = distances.map(
     (x) =>
@@ -45,7 +45,7 @@ export const Parallax = ({
             {[...Array(dotsToShow * dotsToShowMultiplier)].map(() => (
               <s.Dot
                 left={Math.random() * 100}
-                top={Math.floor(Math.random() * windowHeight)}
+                top={Math.floor(Math.random() * pageHeight)}
                 scale={Math.random() * sizeMultiplier}
               />
             ))}
