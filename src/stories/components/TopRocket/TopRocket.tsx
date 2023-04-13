@@ -5,7 +5,7 @@ import { RiRocketLine } from "react-icons/ri"
 import { TbFlame } from "react-icons/tb"
 
 export interface TopRocketProps {
-  windowHeight: number
+  pageHeight: number
   scrollYProgress: MotionValue<number>
   size?: TopRocketStylesProps["size"]
   card?: TopRocketStylesProps["card"]
@@ -14,7 +14,7 @@ export interface TopRocketProps {
 const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms))
 
 export const TopRocket = ({
-  windowHeight,
+  pageHeight,
   size = "medium",
   card,
   scrollYProgress,
@@ -62,7 +62,7 @@ export const TopRocket = ({
 
   const abovePage = {
     opacity: 1,
-    translateY: -windowHeight,
+    translateY: -pageHeight,
   }
 
   const off = {

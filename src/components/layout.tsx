@@ -9,10 +9,11 @@ interface LayoutProps {
 }
 
 const Layout: React.FC<LayoutProps> = ({ children }) => {
+  const ref = React.useRef(null)
   const { scrollYProgress } = useScroll()
 
-  const [windowWidth, setWindowWidth] = React.useState(0)
-  const [windowHeight, setWindowHeight] = React.useState(0)
+  const [pageWidth, setPageWidth] = React.useState(0)
+  const [pageHeight, setPageHeight] = React.useState(0)
 
   React.useEffect(() => {
     handleResize()
@@ -20,24 +21,23 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
   }, [])
 
   const handleResize = () => {
-    setWindowWidth(window.outerWidth)
-    setWindowHeight(window.outerHeight)
+    if (ref.current) {
+      setPageWidth(ref.current.offsetWidth)
+      setPageHeight(ref.current.offsetHeight)
+    }
   }
 
   return (
-    <div className={GlobalStyles}>
+    <div className={GlobalStyles} ref={ref}>
       <Slice alias="header" />
       {children}
       <Slice alias="footer" />
 
-      <TopRocket
-        windowHeight={windowHeight}
-        scrollYProgress={scrollYProgress}
-      />
+      <TopRocket pageHeight={pageHeight} scrollYProgress={scrollYProgress} />
 
       <Parallax
-        windowWidth={windowWidth}
-        windowHeight={windowHeight}
+        pageWidth={pageWidth}
+        pageHeight={pageHeight}
         scrollYProgress={scrollYProgress}
       />
     </div>
