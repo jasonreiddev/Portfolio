@@ -8,20 +8,22 @@ export const GlobalStyles = css`
     }
 
     body {
+      --color-black: #000;
+      --color-white: #fff;
+
       --color-background: #41d9c5;
       --color-text: #231f20;
       --color-primary: #231f20;
       --color-muted: #2aceb9;
       --color-active: #683799;
-      --color-black: #000;
-      --color-white: #fff;
+      --color-dots: #fff;
 
-      --color-card-active: #2aceb9;
-      --color-card-primary: #231f20;
-      --color-card-muted: #303030;
       --color-card-background: #231f20;
       --color-card-background-opaque: #231f20e8;
       --color-card-text: #41d9c5;
+      --color-card-primary: #231f20;
+      --color-card-active: #2aceb9;
+      --color-card-muted: #303030;
 
       .display-dark {
         display: none;
@@ -33,6 +35,7 @@ export const GlobalStyles = css`
         --color-primary: #969696;
         --color-muted: #303030;
         --color-active: #41d9c5;
+        --color-dots: #41d9c5;
 
         .invert-dark {
           filter: invert(1);

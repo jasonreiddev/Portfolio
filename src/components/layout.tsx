@@ -2,7 +2,7 @@ import * as React from "react"
 import { GlobalStyles } from "../global.styles"
 import { Slice } from "gatsby"
 import { TopRocket } from "../stories/components/TopRocket/TopRocket"
-import { useScroll, useVelocity } from "framer-motion"
+import { useScroll } from "framer-motion"
 import { Parallax } from "../stories/components/Parallax/Parallax"
 interface LayoutProps {
   children?: React.ReactNode
@@ -15,8 +15,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
   const [windowHeight, setWindowHeight] = React.useState(0)
 
   React.useEffect(() => {
-    setWindowWidth(window.outerWidth)
-    setWindowHeight(window.outerHeight)
+    handleResize()
     window.addEventListener("resize", handleResize)
   }, [])
 

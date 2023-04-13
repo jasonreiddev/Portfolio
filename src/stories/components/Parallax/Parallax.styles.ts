@@ -4,7 +4,7 @@ const ParallaxWrapper = styled("div")`
   position: fixed;
   width: 100%;
   height: 100%;
-  top: 0;
+  top: 80px;
   z-index: -1;
   pointer-events: none;
 `
@@ -21,12 +21,12 @@ const Dot = styled("span")<DotStylesProps>`
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  background: var(--color-active);
+  background: var(--color-dots);
   box-shadow: 0 0
     ${(p: DotStylesProps) => {
       return p.scale * 60
     }}px
-    8px var(--color-active);
+    8px var(--color-dots);
 
   left: ${(p: DotStylesProps) => {
     return p.left
