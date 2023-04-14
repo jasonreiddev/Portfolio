@@ -1,14 +1,14 @@
 import * as React from "react"
 import { motion, MotionValue, useTransform } from "framer-motion"
 import { ParallaxStyles as s } from "./Parallax.styles"
-import { ThemeToggler } from "gatsby-plugin-dark-mode"
-import {} from "gatsby-plugin-dark-mode"
+import seedrandom from "seedrandom"
 
 export interface ParallaxProps {
   pageWidth: number
   pageHeight: number
   scrollYProgress: MotionValue<number>
   speed?: number
+  seed?: string
 }
 
 interface DotGroup {
@@ -22,6 +22,7 @@ export const Parallax = ({
   pageHeight,
   scrollYProgress,
   speed = 100,
+  seed = "seed",
 }: ParallaxProps) => {
   const dotsToShow = Math.floor(Math.sqrt(pageWidth * pageHeight) / 80)
   const distances = [1, 2, 3]
@@ -36,6 +37,7 @@ export const Parallax = ({
         sizeMultiplier: 3 - x + 1,
       } as DotGroup)
   )
+  const rng = new seedrandom(seed)
 
   return (
     <s.ParallaxWrapper>
@@ -44,9 +46,9 @@ export const Parallax = ({
           <>
             {[...Array(dotsToShow * dotsToShowMultiplier)].map(() => (
               <s.Dot
-                left={Math.random() * 100}
-                top={Math.floor(Math.random() * pageHeight)}
-                scale={Math.random() * sizeMultiplier}
+                left={rng.quick() * 100}
+                top={Math.floor(rng.quick() * pageHeight)}
+                scale={rng.quick() * sizeMultiplier}
               />
             ))}
           </>

@@ -52,6 +52,7 @@
     "react-dom": "^18.0.0",
     "react-feather": "^2.0.9",
     "react-icons": "^4.8.0",
+    "seedrandom": "^3.0.5",
     "sharp": "^0.30.5",
     "storybook-addon-gatsby": "^0.0.5",
     "ts-loader": "^9.4.2",
