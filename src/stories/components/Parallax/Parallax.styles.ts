@@ -4,7 +4,7 @@ const ParallaxWrapper = styled("div")`
   position: fixed;
   width: 100%;
   height: 100%;
-  margin-top: 8px;
+  margin-top: 38px;
   z-index: -1;
   pointer-events: none;
 `

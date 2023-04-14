@@ -19,6 +19,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
 
   const [pageWidth, setPageWidth] = React.useState(0)
   const [pageHeight, setPageHeight] = React.useState(0)
+  const [isMobile, setIsMobile] = React.useState(false)
 
   React.useEffect(() => {
     handleResize()
@@ -27,26 +28,30 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
 
   const handleResize = () => {
     if (ref.current) {
-      setPageWidth(ref.current.offsetWidth)
+      let width = ref.current.offsetWidth
+      setIsMobile(width < 640)
+      setPageWidth(width)
       setPageHeight(ref.current.offsetHeight)
     }
   }
 
   const path = children.key
+  const xTransform = isMobile ? 0 : path == "/" ? -300 : 300
 
   return (
     <div className={GlobalStyles} ref={ref}>
       <Slice alias="header" />
+
       <motion.div
         key={path}
-        initial={{ x: path == "/" ? -300 : 300, opacity: 0 }}
+        initial={{ x: xTransform, opacity: 0 }}
         animate={{ x: 0, opacity: 1 }}
-        exit={{ x: path == "/" ? 300 : -300, opacity: 0 }}
-        transition={{
-          type: "spring",
-          stiffness: 260,
-          damping: 20,
-        }}
+        exit={{ x: xTransform, opacity: 0 }}
+        transition={
+          isMobile
+            ? { ease: "linear", duration: 0.2 }
+            : { type: "spring", stiffness: 260, damping: 20 }
+        }
       >
         <Parallax
           pageWidth={pageWidth}
