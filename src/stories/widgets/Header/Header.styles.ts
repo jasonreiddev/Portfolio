@@ -23,6 +23,7 @@ export const Container = styled.header`
       a {
         text-decoration: none;
         color: var(--color-text);
+        cursor: pointer;
 
         &:hover {
           color: var(--color-active);

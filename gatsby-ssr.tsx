@@ -1,5 +1,5 @@
-const React = require("react")
+export { wrapPageElement } from "./wrapPageElement"
 
-exports.onRenderBody = ({ setHtmlAttributes }) => {
+export const onRenderBody = ({ setHtmlAttributes }) => {
   setHtmlAttributes({ lang: "en" })
 }

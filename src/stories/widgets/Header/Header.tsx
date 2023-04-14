@@ -6,7 +6,7 @@ import { ThemeToggler } from "../../components/ThemeToggler/ThemeToggler"
 import { BrandLogo } from "../../components/BrandLogo/BrandLogo"
 import { BurgerIcon } from "../../components/BurgerIcon/BurgerIcon"
 import { Button } from "../../components/Button/Button"
-import { Link } from "gatsby"
+import { Link, navigate } from "gatsby"
 
 type NavItem = {
   id: string
@@ -42,6 +42,11 @@ export const Header = ({ navItems, cta }: HeaderProps) => {
     }
   }, [isOpen])
 
+  const handleRedirect = (to: string) => {
+    setOpen(false)
+    navigate(to)
+  }
+
   return (
     <s.Container>
       <s.Header>
@@ -59,7 +64,9 @@ export const Header = ({ navItems, cta }: HeaderProps) => {
                   // />
                   <></>
                 ) : (
-                  <Link to={navItem.href}>{navItem.text}</Link>
+                  <a onClick={() => handleRedirect(navItem.href)}>
+                    {navItem.text}
+                  </a>
                 )}
               </li>
             ))}
@@ -94,7 +101,9 @@ export const Header = ({ navItems, cta }: HeaderProps) => {
                 // />
                 <></>
               ) : (
-                <Link to={navItem.href}>{navItem.text}</Link>
+                <a onClick={() => handleRedirect(navItem.href)}>
+                  {navItem.text}
+                </a>
               )}
             </li>
           ))}
