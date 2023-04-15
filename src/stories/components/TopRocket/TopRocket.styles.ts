@@ -35,7 +35,7 @@ const TopRocketWrapper = styled("span")<TopRocketStylesProps>`
       transform: scale(1.2);
     }
 
-    & > svg {
+    #Rocket svg {
       width: 100%;
       height: auto;
       cursor: pointer;
@@ -53,7 +53,7 @@ const TopRocketWrapper = styled("span")<TopRocketStylesProps>`
       }
     }
 
-    span > svg {
+    #Flame svg {
       transform: rotate(180deg) translateY(20%);
       width: 100%;
       height: auto;

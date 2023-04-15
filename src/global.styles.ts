@@ -52,7 +52,8 @@ export const GlobalStyles = css`
       }
 
       &:not(.dark) {
-        ${TopRocketStyles.TopRocketWrapper} > div > svg {
+        ${TopRocketStyles.TopRocketWrapper} #Rocket > svg {
+          border: 2px solid var(--color-text);
           background-color: var(--color-background);
           fill: var(--color-primary);
           border-radius: 8px;
