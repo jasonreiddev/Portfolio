@@ -52,10 +52,14 @@ export const GlobalStyles = css`
       }
 
       &:not(.dark) {
-        ${TopRocketStyles.TopRocketWrapper} > div > svg {
-          background-color: var(--color-background);
+        ${TopRocketStyles.TopRocketWrapper} #Rocket > svg {
           fill: var(--color-primary);
-          border-radius: 8px;
+          @media screen and (max-width: 1333px) {
+            border: 2px solid var(--color-text);
+            background-color: var(--color-background);
+            border-radius: 8px;
+            box-sizing: content-box;
+          }
 
           &:hover {
             background-color: var(--color-muted);
@@ -64,10 +68,6 @@ export const GlobalStyles = css`
       }
 
       /* Temp styles */
-      .image-border {
-        border-radius: 24px;
-      }
-
       .hover-footer-header {
         color: var(--color-text);
       }

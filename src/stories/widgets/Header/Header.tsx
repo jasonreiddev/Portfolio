@@ -42,7 +42,7 @@ export const Header = ({ navItems, cta }: HeaderProps) => {
     }
   }, [isOpen])
 
-  const handleClick = (
+  const handleMobileClick = (
     e: React.MouseEvent<HTMLAnchorElement, MouseEvent>,
     to: string
   ) => {
@@ -53,7 +53,11 @@ export const Header = ({ navItems, cta }: HeaderProps) => {
   return (
     <s.Container>
       <s.Header>
-        <a onClick={(e) => handleClick(e, "/")} href="/" aria-label="Home">
+        <a
+          onClick={(e) => handleMobileClick(e, "/")}
+          href="/"
+          aria-label="Home"
+        >
           <BrandLogo />
         </a>
         <s.DesktopNav>
@@ -108,7 +112,7 @@ export const Header = ({ navItems, cta }: HeaderProps) => {
                 <></>
               ) : (
                 <a
-                  onClick={(e) => handleRedirect(e, navItem.href)}
+                  onClick={(e) => handleMobileClick(e, navItem.href)}
                   href={navItem.href}
                 >
                   {navItem.text}

@@ -89,22 +89,18 @@ export const TopRocket = ({
         }
         initial={show ? onPage : belowPage}
         animate={takeOff ? abovePage : show ? onPage : belowPage}
-        whileHover={{ scale: 1.2, transition: { duration: 0.2 } }}
       >
-        <RiRocketLine
-          onClick={() => handleClick()}
-          aria-label="Scroll to Top"
-          title="Scroll to Top"
-        />
-        <motion.span
-          transition={
-            takeOff
-              ? { ease: "easeIn", duration: 0.2 }
-              : { ease: "easeOut", duration: 0 }
-          }
-          initial={off}
-          animate={takeOff ? on : off}
+        <motion.div
+          id="Rocket"
+          whileHover={{ scale: 1.2, transition: { duration: 0.2 } }}
         >
+          <RiRocketLine
+            onClick={() => handleClick()}
+            aria-label="Scroll to Top"
+            title="Scroll to Top"
+          />
+        </motion.div>
+        <motion.span id="Flame" initial={off} animate={takeOff ? on : off}>
           <TbFlame />
         </motion.span>
       </motion.div>
