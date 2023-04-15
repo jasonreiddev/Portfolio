@@ -25,13 +25,7 @@ module.exports = {
           // For all the options available,
           purpose: `any maskable`,
         },
-        icons: [
-          {
-            src: "src/favicon.png",
-            sizes: `192x192`,
-            type: `image/png`,
-          },
-        ],
+        icon: "src/favicon.png",
         /* Required for gatsby-plugin-offline */
         cache_busting_mode: "none",
       },

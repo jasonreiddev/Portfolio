@@ -1,6 +1,7 @@
 import React from "react"
-import { Link, navigate } from "gatsby"
+import { navigate } from "gatsby"
 import { ButtonStyles as s, ButtonStylesProps } from "./Button.styles"
+import handleRedirect from "../../../helpers/handleRedirect"
 
 export interface ButtonProps extends ButtonStylesProps {
   text: string
@@ -22,15 +23,7 @@ export const Button = ({
   size = "medium",
   card,
 }: ButtonProps) => {
-  let ElementType: "button" | typeof Link | "a" = "button"
-
-  if (!onClick && href) {
-    if (externalLink.test(href)) {
-      ElementType = "a"
-    } else {
-      ElementType = Link
-    }
-  }
+  const ElementType = href ? "a" : "button"
 
   return (
     <s.MotionWrapper
@@ -45,11 +38,13 @@ export const Button = ({
         card={card}
         id={`${idPrefix}-${id}`}
         as={ElementType}
+        onClick={
+          href && !externalLink.test(href) && !onClick
+            ? (e) => handleRedirect(e, href)
+            : null
+        }
         {...{
-          onClick: ElementType == "button" ? onClick : undefined,
-          type: ElementType == "button" ? "button" : undefined,
           href: ElementType == "a" ? href : undefined,
-          to: typeof ElementType == typeof Link ? href : undefined,
         }}
       >
         {text}
