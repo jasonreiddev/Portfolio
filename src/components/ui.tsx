@@ -1,4 +1,3 @@
-import { Link as GatsbyLink } from "gatsby"
 import {
   GatsbyImage,
   GatsbyImageProps,
@@ -10,6 +9,7 @@ import isAbsoluteURL from "is-absolute-url"
 import * as React from "react"
 import * as styles from "./ui.css"
 import { Radii, SpaceTokens } from "../theme.css"
+import handleRedirect from "../helpers/handleRedirect"
 
 export const cx = (...args: (string | undefined)[]) =>
   args.filter(Boolean).join(" ")
@@ -236,7 +236,14 @@ export function Link({ to, href, ...props }: WithChildren<LinkProps>) {
       <a href={url} className={styles.link} {...props} />
     )
   }
-  return <GatsbyLink to={url} className={styles.link} {...props} />
+  return (
+    <a
+      onClick={(e) => handleRedirect(e, "/")}
+      href={url}
+      className={styles.link}
+      {...props}
+    />
+  )
 }
 
 export function NavLink({ ...props }) {

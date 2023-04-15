@@ -6,7 +6,7 @@ import { ThemeToggler } from "../../components/ThemeToggler/ThemeToggler"
 import { BrandLogo } from "../../components/BrandLogo/BrandLogo"
 import { BurgerIcon } from "../../components/BurgerIcon/BurgerIcon"
 import { Button } from "../../components/Button/Button"
-import { Link, navigate } from "gatsby"
+import handleRedirect from "../../../helpers/handleRedirect"
 
 type NavItem = {
   id: string
@@ -42,17 +42,20 @@ export const Header = ({ navItems, cta }: HeaderProps) => {
     }
   }, [isOpen])
 
-  const handleRedirect = (to: string) => {
+  const handleClick = (
+    e: React.MouseEvent<HTMLAnchorElement, MouseEvent>,
+    to: string
+  ) => {
     setOpen(false)
-    navigate(to)
+    handleRedirect(e, to)
   }
 
   return (
     <s.Container>
       <s.Header>
-        <Link to="/">
+        <a onClick={(e) => handleClick(e, "/")} href="/" aria-label="Home">
           <BrandLogo />
-        </Link>
+        </a>
         <s.DesktopNav>
           <ul>
             {navItems?.map((navItem) => (
@@ -64,7 +67,10 @@ export const Header = ({ navItems, cta }: HeaderProps) => {
                   // />
                   <></>
                 ) : (
-                  <a onClick={() => handleRedirect(navItem.href)}>
+                  <a
+                    onClick={(e) => handleRedirect(e, navItem.href)}
+                    href={navItem.href}
+                  >
                     {navItem.text}
                   </a>
                 )}
@@ -101,7 +107,10 @@ export const Header = ({ navItems, cta }: HeaderProps) => {
                 // />
                 <></>
               ) : (
-                <a onClick={() => handleRedirect(navItem.href)}>
+                <a
+                  onClick={(e) => handleRedirect(e, navItem.href)}
+                  href={navItem.href}
+                >
                   {navItem.text}
                 </a>
               )}
