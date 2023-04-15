@@ -41,14 +41,15 @@ export const Parallax = ({
 
   return (
     <s.ParallaxWrapper>
-      {dotGroups.map(({ y, dotsToShowMultiplier, sizeMultiplier }) => (
-        <motion.div style={{ y }}>
+      {dotGroups.map(({ y, dotsToShowMultiplier, sizeMultiplier }, i) => (
+        <motion.div style={{ y }} key={`dot-${seed}-${i}`}>
           <>
-            {[...Array(dotsToShow * dotsToShowMultiplier)].map(() => (
+            {[...Array(dotsToShow * dotsToShowMultiplier)].map((x, index) => (
               <s.Dot
                 left={rng.quick() * 100}
                 top={Math.floor(rng.quick() * pageHeight)}
                 scale={rng.quick() * sizeMultiplier}
+                key={`dot-${seed}-${i}-${index}`}
               />
             ))}
           </>
