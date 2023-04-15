@@ -9,7 +9,7 @@ type WrapPageElement =
 
 export const wrapPageElement: WrapPageElement = ({ element }: any) => {
   return (
-    <AnimatePresence>
+    <AnimatePresence initial={false}>
       <Layout>{element}</Layout>
     </AnimatePresence>
   )

@@ -5,6 +5,7 @@ export const GlobalStyles = css`
   :global() {
     html {
       scroll-behavior: smooth;
+      overflow-x: hidden;
     }
 
     body {

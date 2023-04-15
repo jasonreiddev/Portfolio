@@ -47,6 +47,18 @@ const Button = styled.button<ButtonStylesProps>`
     return p.primary ? `var(--color-background)` : `var(--color-text)`
   }};
 
+  box-shadow: ${(p: ButtonStylesProps) => {
+    if (p.card) {
+      if (p.size !== "large") {
+        return p.primary ? null : `inset 0 0 0 2px var(--color-white)`
+      }
+
+      return p.primary ? null : `inset 0 0 0 2px var(--color-card-text)`
+    }
+
+    return p.primary ? null : `inset 0 0 0 2px var(--color-text)`
+  }};
+
   font-size: ${(p: ButtonStylesProps) => {
     switch (p.size) {
       case "small": {
