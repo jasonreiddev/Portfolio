@@ -17,11 +17,13 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
   const ref = React.useRef(null)
   const { scrollYProgress } = useScroll()
 
+  const [firstLoad, setFirstLoad] = React.useState(true)
   const [pageWidth, setPageWidth] = React.useState(0)
   const [pageHeight, setPageHeight] = React.useState(0)
   const [isMobile, setIsMobile] = React.useState(false)
 
   React.useEffect(() => {
+    setFirstLoad(false)
     handleResize()
     window.addEventListener("resize", handleResize)
   }, [])
@@ -44,7 +46,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
 
       <motion.div
         key={path}
-        initial={{ x: xTransform, opacity: 0 }}
+        initial={firstLoad ? null : { x: xTransform, opacity: 0 }}
         animate={{ x: 0, opacity: 1 }}
         exit={{ x: xTransform, opacity: 0 }}
         transition={
