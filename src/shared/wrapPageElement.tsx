@@ -1,7 +1,7 @@
 import React from "react"
 import { GatsbyBrowser, GatsbySSR } from "gatsby"
-import Layout from "./src/components/layout"
 import { AnimatePresence } from "framer-motion"
+import Layout from "./Layout/Layout"
 
 type WrapPageElement =
   | GatsbyBrowser["wrapPageElement"]
