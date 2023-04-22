@@ -1,5 +1,5 @@
 import { css } from "@linaria/core"
-import { TopRocketStyles } from "./stories/components/TopRocket/TopRocket.styles"
+import { TopRocketStyles } from "../stories/components/TopRocket/TopRocket.styles"
 
 export const GlobalStyles = css`
   :global() {
