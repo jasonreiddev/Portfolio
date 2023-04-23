@@ -13,7 +13,7 @@ type Story = StoryObj<typeof Timeline>
 export const AboutPage: Story = {
   args: {
     kicker: "EMPLOYMENT, PROJECTS, ACHIEVEMENTS",
-    heading: "Time Line",
+    heading: "Timeline",
     text: "My software development journey",
     items: TimelineExample.args.items,
   },
