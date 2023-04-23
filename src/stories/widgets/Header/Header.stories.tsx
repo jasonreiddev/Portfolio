@@ -1,21 +1,24 @@
-import { ComponentStory } from "@storybook/react"
+import type { Meta, StoryObj } from "@storybook/react"
+import { Link } from "gatsby-link"
+
 import { Header } from "./Header"
 
-export default {
-  title: "Widgets/Header",
+const meta: Meta<typeof Header> = {
   component: Header,
 }
 
-const Template: ComponentStory<typeof Header> = (args) => <Header {...args} />
+export default meta
+type Story = StoryObj<typeof Header>
 
-export const HeaderExample = Template.bind({})
-HeaderExample.args = {
-  navItems: [
-    {
-      id: 2,
-      navItemType: "title",
-      href: "/",
-      text: "Home",
-    },
-  ],
+export const HeaderExample: Story = {
+  args: {
+    navItems: [
+      {
+        id: "2",
+        navItemType: "Link",
+        href: "/",
+        text: "Home",
+      },
+    ],
+  },
 }

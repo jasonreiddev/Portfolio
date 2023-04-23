@@ -1,66 +1,57 @@
-import { ComponentStory } from "@storybook/react"
+import type { Meta, StoryObj } from "@storybook/react"
 
+import { cardParameters } from "../../cardParameters"
 import { BrandLogo } from "./BrandLogo"
 
-export default {
-  title: "Components/BrandLogo",
+const meta: Meta<typeof BrandLogo> = {
   component: BrandLogo,
 }
 
-const Template: ComponentStory<typeof BrandLogo> = (args) => (
-  <BrandLogo {...args} />
-)
+export default meta
+type Story = StoryObj<typeof BrandLogo>
 
-export const Animate = Template.bind({})
-Animate.args = {
-  animate: true,
-  size: "medium",
-  text: "Primary",
-}
-
-export const DoNotAnimate = Template.bind({})
-DoNotAnimate.args = {
-  size: "medium",
-  animate: false,
-  text: "Secondary",
-}
-
-export const Large = Template.bind({})
-Large.args = {
-  animate: true,
-  size: "large",
-  text: "Large",
-}
-
-export const Small = Template.bind({})
-Small.args = {
-  animate: true,
-  size: "small",
-  text: "Small",
-}
-
-export const CardAnimate = Template.bind({})
-CardAnimate.args = {
-  animate: true,
-  size: "medium",
-  text: "Primary",
-  card: true,
-}
-CardAnimate.parameters = {
-  backgrounds: {
-    values: [{ name: "background", value: "var(--color-card-primary)" }],
+export const Animate: Story = {
+  args: {
+    animate: true,
+    size: "medium",
   },
 }
 
-export const CardSecondary = Template.bind({})
-CardSecondary.args = {
-  animate: false,
-  size: "medium",
-  text: "Secondary",
-  card: true,
-}
-CardSecondary.parameters = {
-  backgrounds: {
-    values: [{ name: "background", value: "var(--color-card-primary)" }],
+export const DoNotAnimate: Story = {
+  args: {
+    size: "medium",
+    animate: false,
   },
+}
+
+export const Large: Story = {
+  args: {
+    animate: true,
+    size: "large",
+  },
+}
+
+export const Small: Story = {
+  args: {
+    animate: true,
+    size: "small",
+  },
+}
+
+export const CardAnimate: Story = {
+  args: {
+    animate: true,
+    size: "medium",
+    card: true,
+  },
+  ...cardParameters,
+}
+
+export const CardSecondary: Story = {
+  args: {
+    animate: false,
+    size: "medium",
+    card: true,
+  },
+  ...cardParameters,
 }

@@ -1,12 +1,12 @@
-import * as React from "react"
 import { GlobalStyles } from "../global.styles"
 import { Slice } from "gatsby"
 import { TopRocket } from "../../stories/components/TopRocket/TopRocket"
 import { motion, useScroll } from "framer-motion"
 import { Parallax } from "../../stories/components/Parallax/Parallax"
 import { LayoutStyles as s } from "./Layout.styles"
+import { FC, ReactNode, useEffect, useRef, useState } from "react"
 
-type children = React.ReactNode & {
+type children = ReactNode & {
   type: () => any
   props: {
     location: {
@@ -19,16 +19,16 @@ interface LayoutProps {
   children?: children
 }
 
-const Layout: React.FC<LayoutProps> = ({ children }) => {
-  const ref = React.useRef(null)
+const Layout: FC<LayoutProps> = ({ children }) => {
+  const ref = useRef(null)
   const { scrollYProgress } = useScroll()
 
-  const [firstLoad, setFirstLoad] = React.useState(true)
-  const [pageWidth, setPageWidth] = React.useState(0)
-  const [pageHeight, setPageHeight] = React.useState(0)
-  const [isMobile, setIsMobile] = React.useState(false)
+  const [firstLoad, setFirstLoad] = useState(true)
+  const [pageWidth, setPageWidth] = useState(0)
+  const [pageHeight, setPageHeight] = useState(0)
+  const [isMobile, setIsMobile] = useState(false)
 
-  React.useEffect(() => {
+  useEffect(() => {
     setFirstLoad(false)
     handleResize()
     window.addEventListener("resize", handleResize)

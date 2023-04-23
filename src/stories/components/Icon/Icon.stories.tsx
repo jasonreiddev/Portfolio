@@ -1,17 +1,20 @@
-import { ComponentStory } from "@storybook/react"
+import type { Meta, StoryObj } from "@storybook/react"
+import { IGatsbyImageData } from "gatsby-plugin-image"
 
+import { testImage } from "../../testImage"
 import { Icon } from "./Icon"
 
-export default {
-  title: "Components/Icon",
+const meta: Meta<typeof Icon> = {
   component: Icon,
 }
 
-const Template: ComponentStory<typeof Icon> = (args) => <Icon {...args} />
+export default meta
+type Story = StoryObj<typeof Icon>
 
-export const Default = Template.bind({})
-Default.args = {
-  image: undefined,
-  alt: "alt text",
-  size: "medium",
+export const Default: Story = {
+  args: {
+    image: testImage as IGatsbyImageData,
+    alt: "alt text",
+    size: "medium",
+  },
 }

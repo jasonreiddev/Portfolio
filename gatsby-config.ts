@@ -20,12 +20,11 @@ module.exports = {
         background_color: "#41d9c5",
         theme_color: "#231f20",
         display: "standalone",
-        icon: "src/brand-logo.png",
+        icon: "src/favicon.png",
         icon_options: {
           // For all the options available,
           purpose: `any maskable`,
         },
-        icon: "src/favicon.png",
         /* Required for gatsby-plugin-offline */
         cache_busting_mode: "none",
       },
@@ -74,6 +73,7 @@ module.exports = {
     "gatsby-transformer-sharp",
     "gatsby-plugin-vanilla-extract",
     "gatsby-plugin-dark-mode",
+    "gatsby-plugin-provide-react",
     {
       resolve: "gatsby-plugin-typescript",
       options: {

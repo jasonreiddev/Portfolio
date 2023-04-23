@@ -1,64 +1,63 @@
-import { ComponentStory } from "@storybook/react"
+import type { Meta, StoryObj } from "@storybook/react"
 
+import { cardParameters } from "../../cardParameters"
 import { Button } from "./Button"
 
-export default {
-  title: "Components/Button",
+const meta: Meta<typeof Button> = {
   component: Button,
 }
 
-const Template: ComponentStory<typeof Button> = (args) => <Button {...args} />
+export default meta
+type Story = StoryObj<typeof Button>
 
-export const Primary = Template.bind({})
-Primary.args = {
-  primary: true,
-  size: "medium",
-  text: "Primary",
-}
-
-export const Secondary = Template.bind({})
-Secondary.args = {
-  size: "medium",
-  primary: false,
-  text: "Secondary",
-}
-
-export const Large = Template.bind({})
-Large.args = {
-  primary: true,
-  size: "large",
-  text: "Large",
-}
-
-export const Small = Template.bind({})
-Small.args = {
-  primary: true,
-  size: "small",
-  text: "Small",
-}
-
-export const CardPrimary = Template.bind({})
-CardPrimary.args = {
-  primary: true,
-  size: "medium",
-  text: "Primary",
-  card: true,
-}
-CardPrimary.parameters = {
-  backgrounds: {
-    values: [{ name: "background", value: "var(--color-card-primary)" }],
+export const Primary: Story = {
+  args: {
+    primary: true,
+    size: "medium",
+    text: "Primary",
   },
 }
 
-export const CardSecondary = Template.bind({})
-CardSecondary.args = {
-  primary: false,
-  size: "medium",
-  text: "Secondary",
-  card: true,
-}
-CardSecondary.parameters = {
-  backgrounds: {
-    values: [{ name: "background", value: "var(--color-card-primary)" }],
+export const Secondary: Story = {
+  args: {
+    size: "medium",
+    primary: false,
+    text: "Secondary",
   },
+}
+
+export const Large: Story = {
+  args: {
+    primary: true,
+    size: "large",
+    text: "Large",
+  },
+}
+
+export const Small: Story = {
+  args: {
+    primary: true,
+    size: "small",
+    text: "Small",
+  },
+}
+
+export const CardPrimary: Story = {
+  args: {
+    primary: true,
+    size: "medium",
+    text: "Primary",
+    card: true,
+  },
+  ...cardParameters,
+}
+
+export const CardSecondary: Story = {
+  args: {
+    primary: false,
+    size: "medium",
+    text: "Secondary",
+    card: true,
+  },
+  ...cardParameters,
 }

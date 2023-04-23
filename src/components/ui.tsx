@@ -6,10 +6,11 @@ import {
   ImageDataLike,
 } from "gatsby-plugin-image"
 import isAbsoluteURL from "is-absolute-url"
-import * as React from "react"
+
 import * as styles from "./ui.css"
 import { Radii, SpaceTokens } from "../theme.css"
 import handleRedirect from "../helpers/handleRedirect"
+import { ElementType, ReactNode, FC } from "react"
 
 export const cx = (...args: (string | undefined)[]) =>
   args.filter(Boolean).join(" ")
@@ -28,9 +29,9 @@ export interface HomepageImage {
   url: string
 }
 
-type WithChildren<T = {}> = T & { children?: React.ReactNode }
+type WithChildren<T = {}> = T & { children?: ReactNode }
 interface BaseProps {
-  as?: React.ElementType | React.FC
+  as?: ElementType | FC
   cx?: string[]
   className?: string
 }
@@ -348,7 +349,14 @@ export function Logo({ alt, image, size = "small" }: LogoProps) {
   )
 }
 
-interface IconProps extends GatsbyImageProps {
+// interface IconProps extends GatsbyImageProps {
+//   size?: styles.IconSizes
+// }
+
+// Make Image optional
+interface IconProps {
+  alt: string
+  image?: IGatsbyImageData
   size?: styles.IconSizes
 }
 

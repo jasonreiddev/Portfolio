@@ -1,17 +1,18 @@
-import { ComponentStory } from "@storybook/react"
+import type { Meta, StoryObj } from "@storybook/react"
+import { MotionValue, useScroll } from "framer-motion"
 
 import { Parallax } from "./Parallax"
 
-export default {
-  title: "Components/Parallax",
+const meta: Meta<typeof Parallax> = {
   component: Parallax,
 }
 
-const Template: ComponentStory<typeof Parallax> = (args) => (
-  <Parallax {...args} />
-)
+export default meta
+type Story = StoryObj<typeof Parallax>
 
-export const Default = Template.bind({})
-Default.args = {
-  scrollYProgress: 0,
+export const Default: Story = {
+  args: {
+    pageWidth: 100,
+    pageHeight: 100,
+  },
 }

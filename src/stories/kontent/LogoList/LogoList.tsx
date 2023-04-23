@@ -1,4 +1,3 @@
-import * as React from "react"
 import { graphql } from "gatsby"
 import { LogoListStyles as s } from "./LogoList.styles"
 import { Variants } from "framer-motion"

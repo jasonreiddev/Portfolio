@@ -1,3 +1,3 @@
 Not included in setup script:
-Time Line item
-Time Line
+Timeline item
+Timeline

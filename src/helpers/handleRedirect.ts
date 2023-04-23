@@ -1,11 +1,7 @@
-import { navigate } from "gatsby"
+import { navigate } from "gatsby-link"
+import { MouseEvent } from "react"
 
-const handleRedirect = (
-  e:
-    | React.MouseEvent<HTMLAnchorElement, MouseEvent>
-    | React.MouseEvent<HTMLButtonElement, MouseEvent>,
-  to: string
-) => {
+const handleRedirect = (e: MouseEvent, to: string) => {
   e.preventDefault()
   navigate(to)
 }

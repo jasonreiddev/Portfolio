@@ -1,9 +1,11 @@
-import React from "react"
-import { GatsbyImage, GatsbyImageProps, getImage } from "gatsby-plugin-image"
-import { IconStylesProps, IconStyles as s } from "./Icon.styles"
+import { GatsbyImage, getImage, IGatsbyImageData } from "gatsby-plugin-image"
+import { IconStyles as s } from "./Icon.styles"
 
-export interface IconProps extends GatsbyImageProps {
-  size?: IconStylesProps["size"]
+export interface IconProps {
+  alt: string
+  image?: IGatsbyImageData
+  size?: "small" | "medium" | "large"
+  id?: string
 }
 
 export const Icon = ({ alt, image, size = "medium" }: IconProps) => {

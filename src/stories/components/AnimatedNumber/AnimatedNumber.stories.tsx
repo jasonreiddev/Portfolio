@@ -1,31 +1,32 @@
-import { ComponentStory } from "@storybook/react"
+import type { Meta, StoryObj } from "@storybook/react"
 
 import { AnimatedNumber } from "./AnimatedNumber"
 
-export default {
-  title: "Components/Animated Number",
+const meta: Meta<typeof AnimatedNumber> = {
   component: AnimatedNumber,
 }
 
-const Template: ComponentStory<typeof AnimatedNumber> = (args) => (
-  <AnimatedNumber {...args} />
-)
+export default meta
+type Story = StoryObj<typeof AnimatedNumber>
 
-export const To100 = Template.bind({})
-To100.args = {
-  from: 0,
-  to: 100,
-  suffix: "+",
+export const To100: Story = {
+  args: {
+    from: 0,
+    to: 100,
+    suffix: "+",
+  },
 }
 
-export const From100 = Template.bind({})
-From100.args = {
-  from: 100,
-  to: 0,
+export const From100: Story = {
+  args: {
+    from: 100,
+    to: 0,
+  },
 }
 
-export const From25to75 = Template.bind({})
-From25to75.args = {
-  from: 25,
-  to: 75,
+export const From25to75: Story = {
+  args: {
+    from: 25,
+    to: 75,
+  },
 }

@@ -1,4 +1,3 @@
-import React from "react"
 import {
   ButtonListStylesProps,
   ButtonListStyles as s,

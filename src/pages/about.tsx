@@ -1,4 +1,3 @@
-import * as React from "react"
 import { graphql } from "gatsby"
 import Layout from "../shared/Layout/Layout"
 import * as sections from "../components/sections"

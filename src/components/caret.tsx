@@ -1,4 +1,3 @@
-import * as React from "react"
 import { caret } from "./caret.css"
 
 interface CaretProps {

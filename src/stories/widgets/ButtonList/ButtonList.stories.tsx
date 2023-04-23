@@ -1,65 +1,64 @@
-import { ComponentStory } from "@storybook/react"
+import type { Meta, StoryObj } from "@storybook/react"
 
+import { ButtonProps } from "../../components/Button/Button"
+import { cardParameters } from "../../cardParameters"
 import { ButtonList } from "./ButtonList"
 
-export default {
-  title: "Widgets/ButtonList",
+const meta: Meta<typeof ButtonList> = {
   component: ButtonList,
 }
 
-const Template: ComponentStory<typeof ButtonList> = (args) => (
-  <ButtonList {...args} />
-)
+export default meta
+type Story = StoryObj<typeof ButtonList>
 
-export const PrimarySecondary = Template.bind({})
-PrimarySecondary.args = {
-  buttons: [
-    {
-      primary: true,
-      text: "Primary",
-    },
-    {
-      primary: false,
-      text: "Secondary",
-    },
-  ],
-  align: "left",
-  card: false,
-}
-
-export const Center = Template.bind({})
-Center.args = {
-  buttons: [
-    {
-      primary: true,
-      text: "Primary",
-    },
-    {
-      primary: false,
-      text: "Secondary",
-    },
-  ],
-  align: "center",
-  card: false,
-}
-
-export const Card = Template.bind({})
-Card.args = {
-  buttons: [
-    {
-      primary: true,
-      text: "Primary",
-    },
-    {
-      primary: false,
-      text: "Secondary",
-    },
-  ],
-  align: "left",
-  card: true,
-}
-Card.parameters = {
-  backgrounds: {
-    values: [{ name: "background", value: "var(--color-card-primary)" }],
+export const PrimarySecondary: Story = {
+  args: {
+    buttons: [
+      {
+        primary: true,
+        text: "Primary",
+      } as ButtonProps,
+      {
+        primary: false,
+        text: "Secondary",
+      } as ButtonProps,
+    ],
+    align: "left",
+    card: false,
   },
+}
+
+export const Center: Story = {
+  args: {
+    buttons: [
+      {
+        primary: true,
+        text: "Primary",
+      } as ButtonProps,
+      {
+        primary: false,
+        text: "Secondary",
+      } as ButtonProps,
+    ],
+    align: "center",
+    card: false,
+  },
+}
+
+export const Card: Story = {
+  args: {
+    buttons: [
+      {
+        primary: true,
+        text: "Primary",
+      } as ButtonProps,
+      {
+        primary: false,
+        text: "Secondary",
+      } as ButtonProps,
+    ],
+    align: "left",
+    card: true,
+  },
+  ...cardParameters,
 }

@@ -1,53 +1,47 @@
-import { ComponentStory } from "@storybook/react"
+import type { Meta, StoryObj } from "@storybook/react"
 
+import { cardParameters } from "../../cardParameters"
 import { BurgerIcon } from "./BurgerIcon"
 
-export default {
-  title: "Components/BurgerIcon",
+const meta: Meta<typeof BurgerIcon> = {
   component: BurgerIcon,
 }
 
-const Template: ComponentStory<typeof BurgerIcon> = (args) => (
-  <BurgerIcon {...args} />
-)
-
-export const Animate = Template.bind({})
-Animate.args = {
-  open: true,
-  size: "medium",
-  text: "Primary",
-}
-
-export const Closed = Template.bind({})
-Closed.args = {
-  size: "medium",
-  open: false,
-  text: "Secondary",
-}
-
-export const Large = Template.bind({})
-Large.args = {
-  open: true,
-  size: "large",
-  text: "Large",
-}
-
-export const Small = Template.bind({})
-Small.args = {
-  open: true,
-  size: "small",
-  text: "Small",
-}
-
-export const CardAnimate = Template.bind({})
-CardAnimate.args = {
-  open: true,
-  size: "medium",
-  text: "Primary",
-  card: true,
-}
-CardAnimate.parameters = {
-  backgrounds: {
-    values: [{ name: "background", value: "var(--color-card-primary)" }],
+export default meta
+type Story = StoryObj<typeof BurgerIcon>
+export const Animate: Story = {
+  args: {
+    open: true,
+    size: "medium",
   },
+}
+
+export const Closed: Story = {
+  args: {
+    size: "medium",
+    open: false,
+  },
+}
+
+export const Large: Story = {
+  args: {
+    open: true,
+    size: "large",
+  },
+}
+
+export const Small: Story = {
+  args: {
+    open: true,
+    size: "small",
+  },
+}
+
+export const CardAnimate: Story = {
+  args: {
+    open: true,
+    size: "medium",
+    card: true,
+  },
+  ...cardParameters,
 }

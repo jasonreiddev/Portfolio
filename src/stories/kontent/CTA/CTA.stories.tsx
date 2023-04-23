@@ -1,20 +1,21 @@
-import { ComponentStory } from "@storybook/react"
-import { PrimarySecondary } from "../../widgets/ButtonList/ButtonList.stories"
+import type { Meta, StoryObj } from "@storybook/react"
 
+import { PrimarySecondary } from "../../widgets/ButtonList/ButtonList.stories"
 import { CTA } from "./CTA"
 
-export default {
-  title: "Kontent/CTA",
+const meta: Meta<typeof CTA> = {
   component: CTA,
 }
 
-const Template: ComponentStory<typeof CTA> = (args) => <CTA {...args} />
+export default meta
+type Story = StoryObj<typeof CTA>
 
-export const Homepage = Template.bind({})
-Homepage.args = {
-  id: "test",
-  kicker: "Kicker",
-  heading: "Heading",
-  text: "Text",
-  links: PrimarySecondary.args.buttons,
+export const Homepage: Story = {
+  args: {
+    id: "test",
+    kicker: "Kicker",
+    heading: "Heading",
+    text: "Text",
+    links: PrimarySecondary.args.buttons,
+  },
 }

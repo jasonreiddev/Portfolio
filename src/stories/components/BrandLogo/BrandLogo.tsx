@@ -1,4 +1,3 @@
-import * as React from "react"
 import { motion } from "framer-motion"
 import { BrandLogoStyles as s, BrandLogoStylesProps } from "./BrandLogo.styles"
 import { useState } from "react"

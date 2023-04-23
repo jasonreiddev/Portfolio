@@ -1,4 +1,3 @@
-import React from "react"
 import { graphql } from "gatsby"
 import { CTAStyles as s } from "./Timeline.styles"
 import { Heading } from "../../components/Heading/Heading"

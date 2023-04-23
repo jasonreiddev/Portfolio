@@ -1,4 +1,3 @@
-import React from "react"
 import { ThemeToggler as GatsbyThemeToggler } from "gatsby-plugin-dark-mode"
 import { ThemeTogglerStyles as s } from "./ThemeToggler.styles"
 import { Moon, Sun } from "react-feather"
