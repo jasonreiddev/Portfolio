@@ -1,4 +1,3 @@
-import React from "react"
 import { TimelineItemStyles as s } from "./TimelineItem.styles"
 import {
   ButtonList,

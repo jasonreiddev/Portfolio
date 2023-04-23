@@ -1,5 +1,4 @@
-import React from "react"
-import { navigate } from "gatsby"
+// import { navigate } from "gatsby"
 import { ButtonStyles as s, ButtonStylesProps } from "./Button.styles"
 import handleRedirect from "../../../helpers/handleRedirect"
 
@@ -38,11 +37,7 @@ export const Button = ({
         card={card}
         id={`${idPrefix}-${id}`}
         as={ElementType}
-        onClick={
-          href && !externalLink.test(href) && !onClick
-            ? (e) => handleRedirect(e, href)
-            : null
-        }
+        onClick={href == "test-test" ? (e) => handleRedirect(e, href) : null}
         {...{
           href: ElementType == "a" ? href : undefined,
         }}

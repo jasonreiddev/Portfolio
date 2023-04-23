@@ -1,5 +1,3 @@
-import * as React from "react"
-
 interface HeadProps {
   title: string
   description?: string

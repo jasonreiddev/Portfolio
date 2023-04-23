@@ -1,5 +1,3 @@
-import React from "react"
-
 import { HeaderStyles as s } from "./Header.styles"
 
 import { ThemeToggler } from "../../components/ThemeToggler/ThemeToggler"
@@ -7,6 +5,7 @@ import { BrandLogo } from "../../components/BrandLogo/BrandLogo"
 import { BurgerIcon } from "../../components/BurgerIcon/BurgerIcon"
 import { Button } from "../../components/Button/Button"
 import handleRedirect from "../../../helpers/handleRedirect"
+import { useEffect, useState, MouseEvent } from "react"
 
 type NavItem = {
   id: string
@@ -32,9 +31,9 @@ export interface HeaderProps {
 }
 
 export const Header = ({ navItems, cta }: HeaderProps) => {
-  const [isOpen, setOpen] = React.useState(false)
+  const [isOpen, setOpen] = useState(false)
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (isOpen) {
       document.body.style.overflowY = "hidden"
     } else {
@@ -42,10 +41,7 @@ export const Header = ({ navItems, cta }: HeaderProps) => {
     }
   }, [isOpen])
 
-  const handleMobileClick = (
-    e: React.MouseEvent<HTMLAnchorElement, MouseEvent>,
-    to: string
-  ) => {
+  const handleMobileClick = (e: MouseEvent, to: string) => {
     setOpen(false)
     handleRedirect(e, to)
   }

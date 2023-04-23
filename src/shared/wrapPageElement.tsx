@@ -1,4 +1,3 @@
-import React from "react"
 import { GatsbyBrowser, GatsbySSR } from "gatsby"
 import { AnimatePresence } from "framer-motion"
 import Layout from "./Layout/Layout"

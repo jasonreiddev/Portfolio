@@ -1,6 +1,4 @@
-import * as React from "react"
 import { graphql, useStaticQuery } from "gatsby"
-import { Menu, X } from "react-feather"
 import {
   Container,
   Flex,
@@ -22,6 +20,7 @@ import NavItemGroup, { NavItemGroupNavItem } from "./nav-item-group"
 import { ThemeToggler } from "../stories/components/ThemeToggler/ThemeToggler"
 import { BrandLogo } from "../stories/components/BrandLogo/BrandLogo"
 import { BurgerIcon } from "../stories/components/BurgerIcon/BurgerIcon"
+import { useEffect, useState } from "react"
 
 type NavItem = {
   id: string
@@ -89,9 +88,9 @@ export default function Header() {
   `)
 
   const { navItems, cta } = data.layout.header
-  const [isOpen, setOpen] = React.useState(false)
+  const [isOpen, setOpen] = useState(false)
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (isOpen) {
       document.body.style.overflowY = "hidden"
     } else {

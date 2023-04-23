@@ -1,12 +1,12 @@
-import { ComponentStory } from "@storybook/react"
+import type { Meta, StoryObj } from "@storybook/react"
 
 import { ThemeToggler } from "./ThemeToggler"
 
-export default {
-  title: "Components/ThemeToggler",
+const meta: Meta<typeof ThemeToggler> = {
   component: ThemeToggler,
 }
 
-const Template: ComponentStory<typeof ThemeToggler> = () => <ThemeToggler />
+export default meta
+type Story = StoryObj<typeof ThemeToggler>
 
-export const Default = Template.bind({})
+export const Default: Story = {}

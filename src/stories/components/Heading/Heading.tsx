@@ -1,4 +1,3 @@
-import React from "react"
 import { HeadingStyles as s } from "./Heading.styles"
 
 export interface HeadingProps {

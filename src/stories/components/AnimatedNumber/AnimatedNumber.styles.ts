@@ -1,22 +1,22 @@
 import { styled } from "@linaria/react"
 
-const Wrapper = styled("div")`
+const Wrapper = styled.div`
   white-space: nowrap;
 `
 
-const Container = styled("span")`
+const Container = styled.span`
   display: inline-grid;
   justify-items: center;
   width: fit-content;
 `
 
-const Hidden = styled("span")`
+const Hidden = styled.span`
   opacity: 0;
   grid-row: 1;
   grid-column: 1;
 `
 
-const Visible = styled("span")`
+const Visible = styled.span`
   grid-row: 1;
   grid-column: 1;
 `

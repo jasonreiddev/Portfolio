@@ -1,7 +1,7 @@
-import * as React from "react"
-import { motion, MotionValue, useTransform } from "framer-motion"
-import { ParallaxStyles as s } from "./Parallax.styles"
+import { motion, MotionValue, useScroll, useTransform } from "framer-motion"
 import seedrandom from "seedrandom"
+
+import { ParallaxStyles as s } from "./Parallax.styles"
 
 export interface ParallaxProps {
   pageWidth: number
@@ -24,6 +24,12 @@ export const Parallax = ({
   speed = 100,
   seed = "seed",
 }: ParallaxProps) => {
+  // Storybook
+  if (scrollYProgress === undefined) {
+    const { scrollY } = useScroll()
+    scrollYProgress = scrollY
+  }
+
   const dotsToShow = Math.floor(Math.sqrt(pageWidth * pageHeight) / 80)
   const distances = [1, 2, 3]
   const dotGroups = distances.map(

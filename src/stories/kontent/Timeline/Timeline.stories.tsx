@@ -1,21 +1,20 @@
-import { ComponentStory } from "@storybook/react"
-import { TimelineExample } from "../../widgets/Timeline/Timeline.stories"
+import type { Meta, StoryObj } from "@storybook/react"
 
+import { TimelineExample } from "../../widgets/Timeline/Timeline.stories"
 import { Timeline } from "./Timeline"
 
-export default {
-  title: "Kontent/Timeline",
+const meta: Meta<typeof Timeline> = {
   component: Timeline,
 }
 
-const Template: ComponentStory<typeof Timeline> = (args) => (
-  <Timeline {...args} />
-)
+export default meta
+type Story = StoryObj<typeof Timeline>
 
-export const AboutPage = Template.bind({})
-AboutPage.args = {
-  kicker: "EMPLOYMENT, PROJECTS, ACHIEVEMENTS",
-  heading: "Time Line",
-  text: "My software development journey",
-  items: TimelineExample.args.items,
+export const AboutPage: Story = {
+  args: {
+    kicker: "EMPLOYMENT, PROJECTS, ACHIEVEMENTS",
+    heading: "Time Line",
+    text: "My software development journey",
+    items: TimelineExample.args.items,
+  },
 }

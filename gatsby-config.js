@@ -74,6 +74,7 @@ module.exports = {
     "gatsby-transformer-sharp",
     "gatsby-plugin-vanilla-extract",
     "gatsby-plugin-dark-mode",
+    "gatsby-plugin-provide-react",
     {
       resolve: "gatsby-plugin-typescript",
       options: {

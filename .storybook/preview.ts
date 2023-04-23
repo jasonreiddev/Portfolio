@@ -1,5 +1,4 @@
-import React from "react"
-import { GlobalStyles } from "../src/global.styles"
+export { GlobalStyles } from "../src/shared/global.styles"
 
 // Gatsby's Link overrides:
 global.___loader = {
@@ -7,10 +6,6 @@ global.___loader = {
   hovering: () => {},
 }
 global.__BASE_PATH__ = "/"
-
-window.___navigate = (pathname) => {
-  action("NavigateTo:")(pathname)
-}
 
 export const parameters = {
   actions: { argTypesRegex: "^on[A-Z].*" },

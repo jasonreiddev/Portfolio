@@ -1,4 +1,3 @@
-import * as React from "react"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import {
   Box,
@@ -11,6 +10,7 @@ import {
 import Caret from "./caret"
 import * as styles from "./nav-item-group.css"
 import { media } from "./ui.css"
+import { useCallback, useEffect, useState } from "react"
 
 export type NavItemGroupNavItem = {
   id: string
@@ -26,12 +26,12 @@ interface NavItemGroupProps {
 }
 
 export default function NavItemGroup({ name, navItems }: NavItemGroupProps) {
-  const [isOpen, setIsOpen] = React.useState(false)
-  const [popupVisible, setPopupVisible] = React.useState(false)
+  const [isOpen, setIsOpen] = useState(false)
+  const [popupVisible, setPopupVisible] = useState(false)
   const isSmallScreen = () => {
     return !window.matchMedia(media.small).matches
   }
-  const onGroupButtonClick = React.useCallback(() => {
+  const onGroupButtonClick = useCallback(() => {
     if (!isOpen) {
       setIsOpen(true)
       setPopupVisible(true)
@@ -44,7 +44,7 @@ export default function NavItemGroup({ name, navItems }: NavItemGroupProps) {
     }
   }, [isOpen])
 
-  React.useEffect(() => {
+  useEffect(() => {
     // crude implementation of animating the popup without a library
     const popupBox = document.querySelector(`[data-id="${name}-popup-box"]`)
     const onAnimationEnd = ({ animationName }) => {
@@ -60,7 +60,7 @@ export default function NavItemGroup({ name, navItems }: NavItemGroupProps) {
     }
   }, [isOpen, name])
 
-  React.useEffect(() => {
+  useEffect(() => {
     // hide menu when clicked outside
     const handleClickOutside = (event) => {
       const wrapper = document.querySelector(

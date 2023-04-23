@@ -1,10 +1,9 @@
-import * as React from "react"
 import { motion } from "framer-motion"
+
 import {
   BurgerIconStyles as s,
   BurgerIconStylesProps,
 } from "./BurgerIcon.styles"
-import { useState } from "react"
 
 export interface BurgerIconProps {
   open: boolean

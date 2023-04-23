@@ -1,4 +1,5 @@
-import { ComponentStory } from "@storybook/react"
+import type { Meta, StoryObj } from "@storybook/react"
+
 import {
   Achievement,
   Employment,
@@ -6,26 +7,26 @@ import {
 } from "../../components/TimelineItem/TimelineItem.stories"
 import { Timeline } from "./TimeLine"
 
-export default {
-  title: "Widgets/Timeline",
+const meta: Meta<typeof Timeline> = {
   component: Timeline,
 }
 
-const Template: ComponentStory<typeof Timeline> = (args) => (
-  <Timeline {...args} />
-)
+export default meta
+type Story = StoryObj<typeof Timeline>
 
-export const TimelineExample = Template.bind({})
-TimelineExample.args = {
-  items: [
-    {
-      ...Achievement.args,
-    },
-    {
-      ...Employment.args,
-    },
-    {
-      ...Project.args,
-    },
-  ],
+export const TimelineExample: Story = {
+  args: {
+    items: [
+      {
+        ...(Achievement.args as any),
+      },
+      {
+        ...(Employment.args as any),
+      },
+      {
+        ...(Project.args as any),
+      },
+    ],
+  },
 }
+// todo any

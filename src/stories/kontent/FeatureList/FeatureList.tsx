@@ -1,4 +1,3 @@
-import * as React from "react"
 import { graphql } from "gatsby"
 import { Feature, FeatureDataProps } from "../../components/Feature/Feature"
 import { FeatureListStyles as s } from "./FeatureList.styles"
@@ -24,11 +23,7 @@ export const FeatureList = ({
           <Heading title={heading} kicker={kicker} />
           {text && <s.Lead>{text}</s.Lead>}
         </s.ContentWrapper>
-        <s.ContentContainer>
-          {content.map((feature, i) => (
-            <Feature key={feature.id} {...feature} flip={Boolean(i % 2)} />
-          ))}
-        </s.ContentContainer>
+        <s.ContentContainer></s.ContentContainer>
       </s.Container>
     </s.MotionWrapper>
   )

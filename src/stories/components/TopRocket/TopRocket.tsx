@@ -1,8 +1,8 @@
-import * as React from "react"
-import { motion, MotionValue, useVelocity } from "framer-motion"
+import { motion, MotionValue, useScroll, useVelocity } from "framer-motion"
 import { TopRocketStyles as s, TopRocketStylesProps } from "./TopRocket.styles"
 import { RiRocketLine } from "react-icons/ri"
 import { TbFlame } from "react-icons/tb"
+import { useEffect, useState } from "react"
 
 export interface TopRocketProps {
   pageHeight: number
@@ -19,13 +19,21 @@ export const TopRocket = ({
   card,
   scrollYProgress,
 }: TopRocketProps) => {
-  const [show, setShow] = React.useState(false)
-  const [takeOff, setTakeOff] = React.useState(false)
-  const [hideReset, setHideReset] = React.useState(false)
+  // Storybook
+  let showSbOverride = false
+  if (scrollYProgress === undefined) {
+    const { scrollY } = useScroll()
+    scrollYProgress = scrollY
+    showSbOverride = true
+  }
+
+  const [show, setShow] = useState(showSbOverride)
+  const [takeOff, setTakeOff] = useState(false)
+  const [hideReset, setHideReset] = useState(false)
 
   const scrollVelocity = useVelocity(scrollYProgress)
 
-  React.useEffect(() => {
+  useEffect(() => {
     return scrollVelocity.onChange((latestVelocity) => {
       if (latestVelocity < 0 && window.pageYOffset == 0) {
         setShow(false)
