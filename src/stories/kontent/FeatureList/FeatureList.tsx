@@ -23,7 +23,11 @@ export const FeatureList = ({
           <Heading title={heading} kicker={kicker} />
           {text && <s.Lead>{text}</s.Lead>}
         </s.ContentWrapper>
-        <s.ContentContainer></s.ContentContainer>
+        <s.ContentContainer>
+          {content.map((feature, i) => (
+            <Feature key={feature.id} {...feature} flip={Boolean(i % 2)} />
+          ))}
+        </s.ContentContainer>
       </s.Container>
     </s.MotionWrapper>
   )
