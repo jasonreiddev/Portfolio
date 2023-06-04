@@ -14,11 +14,11 @@ export interface FeatureDataProps {
   kicker?: string
   heading: string
   text: string
-  links: ButtonListProps["buttons"]
+  links?: ButtonListProps["buttons"]
 }
 
 interface FeatureProps {
-  flip: boolean
+  flip?: boolean
 }
 
 const wrapperVariants = {
@@ -70,15 +70,15 @@ export const Feature = ({
       viewport={{ once: true }}
       variants={wrapperVariants}
     >
-      <s.Container flip={flip}>
-        <s.MotionImageWrapper variants={imageVariants}>
-          {image && (
+      <s.Container flip={flip} hasImage={!!image}>
+        {image && (
+          <s.MotionImageWrapper variants={imageVariants}>
             <GatsbyImage
               alt={image.alt}
               image={getImage(image.gatsbyImageData)}
             />
-          )}
-        </s.MotionImageWrapper>
+          </s.MotionImageWrapper>
+        )}
         <s.MotionContentWrapper variants={contentVariants}>
           <Heading title={heading} kicker={kicker} subheading />
           {text && <s.Lead>{text}</s.Lead>}

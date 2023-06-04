@@ -10,11 +10,13 @@ export interface TimelineProps {
 
 export const Timeline = ({ items }: TimelineProps) => {
   return (
-    <s.Container>
-      {items &&
-        items.map((item, i) => (
-          <TimelineItem {...item} key={`timeline-Item-${i}`} />
-        ))}
-    </s.Container>
+    <>
+      <s.Container>
+        {items &&
+          items.map((item, i) => (
+            <TimelineItem {...item} key={`timeline-Item-${i}`} />
+          ))}
+      </s.Container>
+    </>
   )
 }

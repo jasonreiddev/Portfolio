@@ -19,10 +19,12 @@ export const FeatureList = ({
   return (
     <s.MotionWrapper>
       <s.Container>
-        <s.ContentWrapper>
-          <Heading title={heading} kicker={kicker} />
-          {text && <s.Lead>{text}</s.Lead>}
-        </s.ContentWrapper>
+        {(heading || kicker || text) && (
+          <s.ContentWrapper>
+            {(heading || kicker) && <Heading title={heading} kicker={kicker} />}
+            {text && <s.Lead>{text}</s.Lead>}
+          </s.ContentWrapper>
+        )}
         <s.ContentContainer>
           {content.map((feature, i) => (
             <Feature key={feature.id} {...feature} flip={Boolean(i % 2)} />

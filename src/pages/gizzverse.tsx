@@ -3,6 +3,8 @@ import { Timeline } from "../stories/widgets/Timeline/TimeLine"
 import { Gizzverse as TimelineProps } from "../stories/kontent/Timeline/Timeline.stories"
 import { TimelineStyles as s } from "../stories/kontent/Timeline/Timeline.styles"
 import { Heading } from "../stories/components/Heading/Heading"
+import { FeatureList } from "../stories/kontent/FeatureList/FeatureList"
+import { Gizzverse as FeatureListProps } from "../stories/kontent/FeatureList/FeatureList.stories"
 
 export default function Gizzverse() {
   return (
@@ -22,6 +24,10 @@ export default function Gizzverse() {
           )}
           <Timeline items={TimelineProps.args.items} />
         </s.ContentWrapper>
+        <FeatureList
+          content={FeatureListProps.args.content}
+          heading={FeatureListProps.args.heading}
+        />
       </s.Container>
     </s.MotionWrapper>
   )

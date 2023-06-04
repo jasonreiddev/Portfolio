@@ -21,7 +21,7 @@ export const AboutPage: Story = {
 
 export const Gizzverse: Story = {
   args: {
-    kicker: "KGLW",
+    kicker: "K.G.L.W",
     heading: "Gizzverse",
     text: "Theoretical Gizzverse narrative timeline",
     items: [
@@ -68,13 +68,12 @@ export const Gizzverse: Story = {
         text: `Humanity in the simulation continues to be destructive. The simulated world is dying.`,
         iframeSrc:
           "https://open.spotify.com/embed/track/5z1zIu1fT1cIxrZmm50plS?utm_source=generator",
-        parallelToPrev: true,
       },
       {
-        title: "L.W.",
-        text: `The simulated world continues dying`,
+        title: "K.G.",
+        text: `Humans are altering themselves to join the creatures from hell.`,
         iframeSrc:
-          "https://open.spotify.com/embed/album/7mGW0YccQQZPCD1acHaClx?utm_source=generator",
+          "https://open.spotify.com/embed/album/6uuQKwM3fRETiscHqlnxuo?utm_source=generator",
       },
       {
         title: "Nonagon Infinity",
@@ -89,8 +88,8 @@ export const Gizzverse: Story = {
           "https://open.spotify.com/embed/album/0eFnZESdmTfXxQiWYLTSb4?utm_source=generator",
       },
       {
-        title: "K.G.",
-        text: `Humans are altering themselves to join the creatures from hell.`,
+        title: "L.W.",
+        text: `The simulated world continues dying.`,
         iframeSrc:
           "https://open.spotify.com/embed/album/7mGW0YccQQZPCD1acHaClx?utm_source=generator",
       },
@@ -124,7 +123,7 @@ export const Gizzverse: Story = {
       {
         title: "Sketches of Brunswick East [A-Side]",
         text: `Han-Tyumi begins corrupting the minds of the people within Brunswick East. He becomes their leader.`,
-        info: `Similar to 'I'm In Your Mind Fuzz [B-Side]' where Satan corrupts the minds of the seven people.`,
+        info: `Similar to "I'm In Your Mind Fuzz [B-Side]" where Satan corrupts the minds of the seven people.`,
         iframeSrc:
           "https://open.spotify.com/embed/album/5rvkoNlufp1WUV5pnGuKOQ?utm_source=generator",
       },
@@ -145,9 +144,16 @@ export const Gizzverse: Story = {
       {
         title: "Flying Microtonal Banana [B-Side]",
         text: `Travellers try to escape from Brunswick East.`,
-        info: `Similar to 'Sketches of Brunswick East' / 'I'm In Your Mind Fuzz', the Travellers enter a new simulation, repeating the cycle.`,
+        info: `Similar to 'Polygondwanaland' / "I'm In Your Mind Fuzz", the Travellers enter a new simulation, repeating the cycle.`,
         iframeSrc:
           "https://open.spotify.com/embed/track/73G2yz58Faqm5GoqfGOPBK?utm_source=generator",
+      },
+      {
+        title: "Ice, Death, Planets, Lungs, Mushrooms And Lava",
+        text: `Nature begins to heal and reclaim the Earth once the Humans are in the simulation`,
+        info: `Because the Simulations exist frozen within time, this album takes place directly after "Infest the Rats' Nest" from the perspective of being outside the simulation`,
+        iframeSrc:
+          "https://open.spotify.com/embed/album/2nPbslvl01lfELsFHTKp0s?utm_source=generatorr",
       },
     ],
   },

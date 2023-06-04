@@ -3,6 +3,7 @@ import { motion } from "framer-motion"
 
 export interface FeatureListStylesProps {
   flip: boolean
+  hasImage?: boolean
 }
 
 const MotionWrapper = styled(motion.section)`
@@ -28,7 +29,9 @@ const Container = styled.div<FeatureListStylesProps>`
   display: grid;
   @media screen and (min-width: 40em) {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: ${(p: FeatureListStylesProps) => {
+      return p.hasImage ? `1fr 1fr` : `1fr`
+    }};
     gap: 32px;
   }
 
@@ -44,6 +47,7 @@ const Container = styled.div<FeatureListStylesProps>`
 const Lead = styled.p`
   font-size: 18px;
   line-height: 1.65em;
+  white-space: pre-wrap;
 `
 
 export const FeatureStyles = {
