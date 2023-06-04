@@ -30,13 +30,9 @@ export const Gizzverse: Story = {
     content: [
       {
         id: "gizzverse",
-        kicker: "simulation cycle",
-        heading: "The Theory Summarised",
-        text:
-          `'Omnium Gatherum' through to "Infest the Rats Nest [B-Side]" document humanity first entering a simulation, beginning the cycle:` +
-          `\n- A being from outside the simulation (Satan / Han-Tyumi) corrupts the minds of the people.` +
-          `\n- The world is being destroyed.` +
-          `\n- The survivors enter a new simulation`,
+        kicker: "Gizzverse's Endless Cycle",
+        heading: "Destruction and Rebirth",
+        text: `The Gizzverse depicts a cycle of destruction and rebirth within a universe facing ecological collapse. It begins with Earth's impending demise, leading scientists to create a simulated reality as a last resort. As humans enter the simulation, they face their own destructive tendencies and unleash dark forces from hell. Altered beings emerge, battles ensue, and eventually, the simulated world crumbles. The cycle repeats as survivors enter new simulations, while nature outside the simulations tries to heal. The Gizzverse explores the interconnected themes of environmental devastation, human folly, and the cyclical nature of existence.`,
         links: [
           {
             primary: true,
