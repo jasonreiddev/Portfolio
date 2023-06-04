@@ -67,6 +67,30 @@ export const GlobalStyles = css`
         }
       }
 
+      &[data-gizz] {
+        --color-background: #e8ddca;
+        --color-text: #231f20;
+        --color-primary: #231f20;
+        --color-muted: #e8ddb0;
+        --color-active: #05aef2;
+        --color-dots: #fff;
+
+        --color-card-background: #f5b42d;
+        --color-card-background-opaque: #f5b42de8;
+        --color-card-text: #231f20;
+        --color-card-primary: #e8ddb0;
+        --color-card-active: #058ef2;
+        --color-card-muted: #f5b42d;
+
+        &.dark {
+          --color-background: #000;
+          --color-text: #cfe4e6;
+          --color-primary: #969696;
+          --color-muted: #303030;
+          --color-dots: #e8ddb0;
+        }
+      }
+
       /* Temp styles */
       .hover-footer-header {
         color: var(--color-text);

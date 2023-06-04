@@ -20,15 +20,16 @@ const ContentContainer = styled.div`
   position: relative;
   max-width: calc(100% - 32px);
   display: flex;
+  gap: 12px;
   flex-direction: column;
-  align-items: flex-end;
   background-color: var(--color-card-background);
   color: var(--color-card-text);
   padding: 24px 16px 16px;
   border-radius: 16px;
 
   time {
-    transform: translate(6px, -6px);
+    margin-left: auto;
+    padding-right: 5px;
   }
 
   ${ButtonListContainer} {
@@ -85,27 +86,45 @@ const MotionWrapper = styled(motion.li)`
   }
 `
 
+const Heading = styled.span`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+`
 const Tag = styled.span`
   font-size: 12px;
   font-weight: bold;
   padding: 5px;
   text-transform: uppercase;
-  position: absolute;
   top: 18px;
   left: 12px;
   letter-spacing: 1px;
 `
+const Title = styled.span`
+  font-size: 18px;
+  font-weight: bold;
+  top: 18px;
+  left: 12px;
+`
 
 const Text = styled.p`
-  white-space: pre-wrap;
   margin: 0;
   width: 100%;
+`
+
+const Info = styled.p`
+  color: var(--color-card-active);
+  font-weight: bold;
+  margin: 0;
 `
 
 export const TimelineItemStyles = {
   MotionWrapper,
   ContentContainer,
+  Heading,
   Tag,
+  Title,
   Text,
+  Info,
   Circle,
 }
