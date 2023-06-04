@@ -23,7 +23,7 @@ export const Gizzverse: Story = {
   args: {
     kicker: "K.G.L.W",
     heading: "The Gizzverse: A Cohesive Narrative Timeline",
-    text: "Dive into the intricate and enigmatic world of King Gizzard and the Lizard Wizard with the Gizzverse, a fan-created narrative timeline that weaves together the band's albums into a captivating and interconnected story. Drawing from online theories and the lyrical themes found in each album, this timeline presents a cohesive journey through a universe where Earth is dying, humans retreat into simulations, altered beings emerge, and cycles of destruction and rebirth unfold. Explore the Gizzverse and uncover the hidden connections and narratives that bind King Gizzard's discography together.",
+    text: "Dive into the intricate and enigmatic world of King Gizzard and the Lizard Wizard with the Gizzverse, a fan-created narrative timeline that weaves together the band's albums into a captivating and interconnected story. The Gizzverse explores the interconnected themes of environmental devastation, human folly, and the cyclical nature of existence.",
     items: [
       {
         title: "Omnium Gatherum",
