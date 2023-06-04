@@ -2,7 +2,9 @@ import { styled } from "@linaria/react"
 import { motion } from "framer-motion"
 import { Container as ButtonListContainer } from "../../widgets/ButtonList/ButtonList.styles"
 
-export interface TimelineItemStylesProps {}
+export interface TimelineItemStylesProps {
+  summary?: boolean
+}
 
 const Circle = styled.span`
   background-color: var(--color-card-text);
@@ -16,7 +18,7 @@ const Circle = styled.span`
   z-index: 1;
 `
 
-const ContentContainer = styled.div`
+const ContentContainer = styled.div<TimelineItemStylesProps>`
   position: relative;
   max-width: calc(100% - 32px);
   display: flex;
@@ -37,7 +39,9 @@ const ContentContainer = styled.div`
   }
 
   &::after {
-    content: "";
+    content: ${(p: TimelineItemStylesProps) => {
+      return p.summary ? "unset" : '""'
+    }};
     position: absolute;
     background-color: var(--color-card-background);
     top: calc(50% - 7.5px);

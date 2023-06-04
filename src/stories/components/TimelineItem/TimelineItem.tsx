@@ -8,7 +8,7 @@ export interface TimelineItemProps {
   category?: "Employment" | "Project" | "Achievement"
   date?: Date
   title?: string
-  text: string
+  text?: string
   info?: string
   links?: ButtonListProps["buttons"]
   iframeSrc?: string
@@ -28,6 +28,7 @@ export const TimelineItem = ({
   info,
   links,
   iframeSrc,
+  parallelToPrev,
 }: TimelineItemProps) => {
   return (
     <s.MotionWrapper
@@ -62,10 +63,9 @@ export const TimelineItem = ({
             height="352"
             frameBorder="0"
             allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-            loading="lazy"
           ></iframe>
         )}
-        <s.Circle />
+        {!parallelToPrev && <s.Circle />}
       </s.ContentContainer>
     </s.MotionWrapper>
   )

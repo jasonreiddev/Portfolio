@@ -77,9 +77,9 @@ export const GlobalStyles = css`
 
         --color-card-background: #f5b42d;
         --color-card-background-opaque: #f5b42de8;
-        --color-card-text: #231f20;
+        --color-card-text: #058ef2;
         --color-card-primary: #e8ddb0;
-        --color-card-active: #058ef2;
+        --color-card-active: #4050b8;
         --color-card-muted: #f5b42d;
 
         &.dark {
