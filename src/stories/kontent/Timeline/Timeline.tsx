@@ -1,7 +1,6 @@
 import { graphql } from "gatsby"
-import { CTAStyles as s } from "./Timeline.styles"
+import { TimelineStyles as s } from "./Timeline.styles"
 import { Heading } from "../../components/Heading/Heading"
-import { Variants } from "framer-motion"
 import {
   Timeline as TimelineWidget,
   TimelineProps as TimelineWidgetProps,

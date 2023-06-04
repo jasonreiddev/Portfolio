@@ -38,7 +38,7 @@ const Lead = styled.p`
   text-align: left;
 `
 
-export const CTAStyles = {
+export const TimelineStyles = {
   MotionWrapper,
   Container,
   ContentWrapper,

@@ -6,9 +6,13 @@ import {
 
 export interface TimelineItemProps {
   category?: "Employment" | "Project" | "Achievement"
-  date: Date
+  date?: Date
+  title?: string
   text: string
-  links: ButtonListProps["buttons"]
+  info?: string
+  links?: ButtonListProps["buttons"]
+  iframeSrc?: string
+  parallelToPrev?: boolean
 }
 
 const dateFormat: Intl.DateTimeFormatOptions = {
@@ -19,8 +23,11 @@ const dateFormat: Intl.DateTimeFormatOptions = {
 export const TimelineItem = ({
   category,
   date,
+  title,
   text,
+  info,
   links,
+  iframeSrc,
 }: TimelineItemProps) => {
   return (
     <s.MotionWrapper
@@ -29,15 +36,34 @@ export const TimelineItem = ({
       viewport={{ once: true }}
     >
       <s.ContentContainer>
-        <s.Tag>{category}</s.Tag>
-        <time>{new Date(date).toLocaleDateString("en-UK", dateFormat)}</time>
+        <s.Heading>
+          {category && <s.Tag>{category}</s.Tag>}
+          {title && !category && <s.Title>{title}</s.Title>}
+          {date && (
+            <time>
+              {new Date(date).toLocaleDateString("en-UK", dateFormat)}
+            </time>
+          )}
+        </s.Heading>
         {text && <s.Text>{text}</s.Text>}
+        {info && <s.Info>{info}</s.Info>}
         {links && links.length > 0 && (
           <ButtonList
             buttons={links}
             card={true}
             id={`Timeline-Button-List-${date}"`}
+            align="right"
           />
+        )}
+        {iframeSrc && (
+          <iframe
+            src={iframeSrc}
+            width="100%"
+            height="352"
+            frameBorder="0"
+            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+            loading="lazy"
+          ></iframe>
         )}
         <s.Circle />
       </s.ContentContainer>

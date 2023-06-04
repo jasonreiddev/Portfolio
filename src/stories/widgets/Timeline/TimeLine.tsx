@@ -13,7 +13,7 @@ export const Timeline = ({ items }: TimelineProps) => {
     <s.Container>
       {items &&
         items.map((item, i) => (
-          <TimelineItem {...item} key={item.date.toString()} />
+          <TimelineItem {...item} key={`timeline-Item-${i}`} />
         ))}
     </s.Container>
   )
