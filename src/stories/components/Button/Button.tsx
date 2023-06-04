@@ -6,6 +6,7 @@ export interface ButtonProps extends ButtonStylesProps {
   text: string
   onClick?: () => void
   href?: string
+  target?: string
   idPrefix: string
   id: string
 }
@@ -16,6 +17,7 @@ export const Button = ({
   text,
   onClick,
   href,
+  target,
   idPrefix,
   id,
   primary = false,
@@ -40,6 +42,7 @@ export const Button = ({
         onClick={href == "test-test" ? (e) => handleRedirect(e, href) : null}
         {...{
           href: ElementType == "a" ? href : undefined,
+          target: ElementType == "a" ? target : undefined,
         }}
       >
         {text}

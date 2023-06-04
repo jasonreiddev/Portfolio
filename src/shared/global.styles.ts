@@ -80,14 +80,14 @@ export const GlobalStyles = css`
         --color-card-text: #058ef2;
         --color-card-primary: #e8ddb0;
         --color-card-active: #4050b8;
-        --color-card-muted: #f5b42d;
+        --color-card-muted: #cc9729;
 
         &.dark {
           --color-background: #000;
           --color-text: #cfe4e6;
           --color-primary: #969696;
           --color-muted: #303030;
-          --color-dots: #e8ddb0;
+          --color-dots: #05aef2;
         }
       }
 

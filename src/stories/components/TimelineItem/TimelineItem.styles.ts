@@ -122,6 +122,27 @@ const Info = styled.p`
   margin: 0;
 `
 
+const IframeWrapper = styled.div`
+  background: var(--color-card-muted);
+  border-radius: 0.75rem;
+  height: 352px;
+
+  display: grid;
+  align-items: center;
+  justify-items: center;
+
+  iframe,
+  > span {
+    grid-area: 1 / 1;
+    z-index: 0;
+  }
+
+  iframe {
+    height: 100%;
+    width: 100%;
+  }
+`
+
 export const TimelineItemStyles = {
   MotionWrapper,
   ContentContainer,
@@ -130,5 +151,6 @@ export const TimelineItemStyles = {
   Title,
   Text,
   Info,
+  IframeWrapper,
   Circle,
 }

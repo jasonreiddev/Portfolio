@@ -3,6 +3,7 @@ import {
   ButtonList,
   ButtonListProps,
 } from "../../widgets/ButtonList/ButtonList"
+import { LoadingIcon } from "../LoadingIcon/LoadingIcon"
 
 export interface TimelineItemProps {
   category?: "Employment" | "Project" | "Achievement"
@@ -57,13 +58,14 @@ export const TimelineItem = ({
           />
         )}
         {iframeSrc && (
-          <iframe
-            src={iframeSrc}
-            width="100%"
-            height="352"
-            frameBorder="0"
-            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-          ></iframe>
+          <s.IframeWrapper>
+            <LoadingIcon />
+            <iframe
+              src={iframeSrc}
+              frameBorder="0"
+              allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+            ></iframe>
+          </s.IframeWrapper>
         )}
         {!parallelToPrev && <s.Circle />}
       </s.ContentContainer>
